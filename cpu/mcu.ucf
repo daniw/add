@@ -1,0 +1,8 @@
+# period constraints for system clock
+NET "clk" TNM_NET = clk;
+TIMESPEC TS_clk = PERIOD "clk" 20 ns HIGH 50%;
+	
+# I/O-constraints for system clock and reset input
+NET "clk" LOC = "C9"  |IOSTANDARD = LVCMOS33;
+NET "rst" LOC = "K17" |IOSTANDARD = LVTTL |PULLDOWN ; # = BTN_SOUTH
+
