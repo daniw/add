@@ -1,9 +1,8 @@
 -------------------------------------------------------------------------------
 -- Entity: mcu_pkg
 -- Author: Waj
--- Date  : 11-May-13
 -------------------------------------------------------------------------------
--- Description: (ECS Uebung 9)
+-- Description:
 -- VHDL package for definition of design parameters and types used throughout
 -- the MCU.
 -------------------------------------------------------------------------------
@@ -13,6 +12,12 @@ use ieee.numeric_std.all;
 
 package mcu_pkg is
 
+  -----------------------------------------------------------------------------
+  -- tool chain selection (because no suppoprt of 'val attritube in ISE XST)
+  -----------------------------------------------------------------------------
+  constant ISE_TOOL : boolean := true; -- true  = ISE XST
+                                       -- false = other synthesizer (e.g. Vivado)
+  
   -----------------------------------------------------------------------------
   -- design parameters
   -----------------------------------------------------------------------------
@@ -43,8 +48,13 @@ package mcu_pkg is
   -- Note: Defining the OPcode in the way shown below, allows assembler-style
   -- programming with mnemonics rather than machine coding (see rom.vhd).
   constant OPCW : natural range 1 to DW := 5;    -- Opcode word width
+  constant OPAW : natural range 1 to DW := 3;    -- ALU operation word width
   type t_instr is (add, sub, andi, ori, xori, slai, srai, mov, ld, st,
-                   addil, addih, jmp, bne, bge, blt, nop);
+                   addil, addih, setil, setih, jmp, bne, bge, blt, nop);
+  -- Instructions targeted at the ALU are defined by means of a sub-type.
+  -- This allows changing the opcode of instructions without having to
+  -- modify the source code of the ALU.
+  subtype t_alu_instr is t_instr range add to mov;
   type t_opcode is array (t_instr) of std_logic_vector(OPCW-1 downto 0);
   constant OPC : t_opcode := (  -- OPcode
          -- ALU operations -------------------------------
@@ -59,6 +69,8 @@ package mcu_pkg is
          -- Immediate Operands ---------------------------
          addil => "01100",      -- 12: add imm. constant low
          addih => "01101",      -- 13: add imm. constant high
+         setil => "01110",      -- 14: set imm. constant low
+         setih => "01111",      -- 15: set imm. constant high
          -- Memory load/store ----------------------------
          ld    => "10000",      -- 16: load from memory
          st    => "10001",      -- 17: store to memory
@@ -75,6 +87,7 @@ package mcu_pkg is
   constant RIDW : natural range 1 to DW := 3; -- register ID word width
   type t_regid is array(0 to 7) of std_logic_vector(RIDW-1 downto 0);
   constant reg : t_regid := ("000","001","010","011","100","101","110","111");  
+  type t_regblk is array(0 to 7) of std_logic_vector(DW-1 downto 0);
   -- CPU address generation 
   type t_pc_mode  is (linear, abs_jump, rel_offset);  -- addr calcultion modi
   type t_addr_exc is (no_err, lin_err, rel_err);      -- address exceptions
@@ -153,7 +166,7 @@ package mcu_pkg is
   end record;
   -- Control Unit / ALU interface ---------------------------------------------
   type t_ctr2alu is record
-    op  : t_instr;
+    op  : std_logic_vector(OPAW-1 downto 0);
     enb : std_logic;
   end record;
   type t_alu2ctr is record

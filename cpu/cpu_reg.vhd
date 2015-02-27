@@ -1,12 +1,11 @@
 -------------------------------------------------------------------------------
 -- Entity: cpu_reg
 -- Author: Waj
--- Date  : 26-May-13
 -------------------------------------------------------------------------------
--- Description: (ECS Uebung 9)
+-- Description:
 -- Register block for the RISC-CPU of the von-Neuman MCU.
 -------------------------------------------------------------------------------
--- Total # of FFs: ... tbd ...
+-- Total # of FFs: 8 x 16
 -------------------------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
@@ -26,9 +25,41 @@ entity cpu_reg is
 end cpu_reg;
 
 architecture rtl of cpu_reg is
+  signal reg_blk : t_regblk;
   
 begin
 
-  reg_out.data <= alu_res;
-    
+  -----------------------------------------------------------------------------
+  -- Mux data to Control Unit combinationally depending on source info.
+  -----------------------------------------------------------------------------
+  reg_out.data <= reg_blk(to_integer(unsigned(reg_in.src1)));
+  
+  -----------------------------------------------------------------------------
+  -- Mux input data to ALU combinationally depending on source info from
+  -- control unit.
+  -----------------------------------------------------------------------------
+  alu_op1 <= reg_blk(to_integer(unsigned(reg_in.src1)));
+  alu_op2 <= reg_blk(to_integer(unsigned(reg_in.src2)));
+  
+  -----------------------------------------------------------------------------
+  -- CPU register block
+  -- Store ALU result depending on destination info from control unit.
+  -- Note: Some CPU registers have non-zero reset values to allow simulation 
+  -- of register-to-register instructions without load-instructions.
+  -----------------------------------------------------------------------------
+  P_reg: process(rst, clk)
+  begin
+    if rst = '1' then
+      reg_blk <= (0      => std_logic_vector(to_unsigned(16#55_FF#, DW)),
+                  1      => std_logic_vector(to_unsigned(16#AA_FF#, DW)),
+                  2      => std_logic_vector(to_unsigned(16#00_AA#, DW)),
+                  3      => std_logic_vector(to_unsigned(16#00_55#, DW)),
+                  others => (others => '0'));
+    elsif rising_edge(clk) then
+      if reg_in.enb = '1' then
+        reg_blk(to_integer(unsigned(reg_in.dest))) <= alu_res;
+      end if;
+    end if;
+  end process;
+  
 end rtl;

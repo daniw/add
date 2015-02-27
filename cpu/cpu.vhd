@@ -1,12 +1,12 @@
 -------------------------------------------------------------------------------
 -- Entity: cpu
 -- Author: Waj
--- Date  : 11-May-13, 26-May-13
+-- Date  : 28.Feb-14
 -------------------------------------------------------------------------------
--- Description: (ECS Uebung 9)
+-- Description: 
 -- Top-level of CPU for simple von-Neumann MCU.
 -------------------------------------------------------------------------------
--- Total # of FFs: .....
+-- Total # of FFs: 0
 -------------------------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
@@ -30,8 +30,6 @@ architecture rtl of cpu is
   signal alu2ctr : t_alu2ctr;
   signal ctr2reg : t_ctr2reg;
   signal reg2ctr : t_reg2ctr;
-  signal alu2reg : std_logic_vector(DW-1 downto 0);
-  signal aluop1  : std_logic_vector(DW-1 downto 0);
   signal alu_res, alu_op1, alu_op2  : std_logic_vector(DW-1 downto 0);
 
 begin
