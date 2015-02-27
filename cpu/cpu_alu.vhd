@@ -40,7 +40,7 @@ begin
               oper1 or oper2                                        when OPC(ori),
               oper1 xor oper2                                       when OPC(xori),
               oper1(DW-2 downto 0) & "0"                            when OPC(slai),
-              "0" & oper1(DW-1 downto 1)                            when OPC(srai),
+              oper1(DW-1) & oper1(DW-1 downto 1)                    when OPC(srai),
               oper1                                                 when OPC(mov),
               (others => '0')                                       when others;
   end generate;

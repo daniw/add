@@ -1,11 +1,11 @@
 -------------------------------------------------------------------------------
 -- Entity: cpu_ctrl
 -- Author: Waj
--- Date  : 26-May-13
+-- Date  : 28-Feb-14
 -------------------------------------------------------------------------------
--- Description: (ECS Uebung 9)
--- Control unit without instruction pipelining for the RISC-CPU of the von-Neuman
--- MCU.
+-- Description:
+-- Control unit without instruction pipelining for the RISC-CPU of the
+-- von-Neuman MCU.
 -------------------------------------------------------------------------------
 -- Total # of FFs: ... tbd ...
 -------------------------------------------------------------------------------
@@ -43,12 +43,11 @@ architecture rtl of cpu_ctrl is
   
 begin
 
-  -- Dummy assignments :ToDo:
+  -- Dummy assignments :ToDo:!!!!!!!!!!!!!!!!!!!!!!!!!!
   r_wb <= '0';
-  reg_out.data <= reg_in.data;
-  alu_out.enb <= '0';
-  with prc_in.exc select
-    data_out <= reg_in.data      when no_err,
+  reg_out.data <= data_in ;
+  with c_st select
+    data_out <= reg_in.data      when s_id,
                 (others => '0')  when others;
 
   -----------------------------------------------------------------------------
@@ -57,7 +56,7 @@ begin
   prc_out.mode <= linear;
   prc_out.addr <= (others => '0');
   addr <= prc_in.pc;
-
+  
   -----------------------------------------------------------------------------
   -- Instruction register & decoding
   -----------------------------------------------------------------------------
@@ -69,18 +68,18 @@ begin
       end if;
     end if;
   end process;
+  alu_out.op   <= instr_reg(DW-1-(OPCW-OPAW) downto DW-OPCW);
+  reg_out.dest <= instr_reg(10 downto 8);
   reg_out.src1 <= instr_reg( 7 downto 5);
   reg_out.src2 <= instr_reg( 4 downto 2);
-  reg_out.dest <= instr_reg(10 downto 8);
-  -- alu_out.op   <= OPC(); ToDo!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  
+
   -----------------------------------------------------------------------------
   -- FSM: Mealy-type
-  -- Inputs : ....
+  -- Inputs : c_st, instr_reg
   -- Outputs: instr_enb, reg_out.enb, prc_out.enb
   -----------------------------------------------------------------------------
   -- memoryless process
-  p_fsm_com: process (c_st)
+  p_fsm_com: process (c_st, instr_reg)
   begin
     -- default assignments
     n_st        <= c_st; -- remain in current state
@@ -92,15 +91,25 @@ begin
       when s_if =>
         -- instruction fetch
         n_st <= s_id;
-        prc_out.enb <= '1';
       when s_id =>
         -- instruction decode
         n_st <= s_ex;
         instr_enb <= '1';
       when s_ex =>
-        -- execute
-        n_st <= s_ma;
-        reg_out.enb <= '1';
+        -- instruction execute
+        if to_integer(unsigned(instr_reg(DW-1 downto DW-(OPCW-OPAW)))) <= 7 then
+        -- Note: The condition above can be more elegantly written with 'val
+        -- attribute, but this is not supported by ISE XST.
+        -- if t_alu_instr'val(to_integer(unsigned(instr_reg(DW-1 downto DW-(OPCW-OPAW))))) <= mov  then
+          -- reg/reg-instruction:
+          -- increase PC, store result from ALU, and start next instr. cycle 
+          prc_out.enb <= '1';  
+          reg_out.enb <= '1';  
+          n_st        <= s_if; 
+        else
+          -- other instruction: ToDo!!!!!!!!!!!!!!!
+          n_st <= s_ma;        
+        end if;
       when s_ma =>
         -- memory access
         n_st <= s_rw;
