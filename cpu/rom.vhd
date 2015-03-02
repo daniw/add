@@ -30,14 +30,14 @@ architecture rtl of rom is
     ---------------------------------------------------------------------------
     -- addr    Opcode     Rdest    Rsrc1    Rsrc2              description
     ---------------------------------------------------------------------------
-         0  => OPC(add) & reg(1) & reg(0) & reg(6) & "--",    -- command xy
-         1  => OPC(sub) & reg(2) & reg(0) & reg(2) & "--",    -- command xy
-         2  => OPC(andi)& reg(7) & reg(0) & reg(1) & "--",    -- command xy
-         3  => OPC(ori) & reg(6) & reg(2) & reg(3) & "--",    -- command xy
-         4  => OPC(nop) & "-----------",                      -- command xy
-         others    => (others => '1')                        
+         0  => OPC(xori) & reg(7) & reg(0) & reg(0) & "--",    -- r7 = r0 xor r0
+         1  => OPC(xori) & reg(7) & reg(1) & reg(7) & "--",    -- r7 = r1 xor r7
+         2  => OPC(xori) & reg(7) & reg(2) & reg(7) & "--",    -- r7 = r2 xor r7
+         3  => OPC(xori) & reg(7) & reg(3) & reg(7) & "--",    -- r7 = r3 xor r7
+         4  => OPC(nop)  & "-----------",                      -- nop
+         others    => (others => '1')
          );
-  
+
 begin
 
   -----------------------------------------------------------------------------
@@ -49,5 +49,5 @@ begin
       bus_out.data <= rom_table(to_integer(unsigned(bus_in.addr)));
     end if;
   end process;
-  
+
 end rtl;
