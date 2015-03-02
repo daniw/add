@@ -34,7 +34,7 @@ architecture rtl of rom is
          1  => OPC(xori) & reg(7) & reg(1) & reg(7) & "--",    -- r7 = r1 xor r7
          2  => OPC(xori) & reg(7) & reg(2) & reg(7) & "--",    -- r7 = r2 xor r7
          3  => OPC(xori) & reg(7) & reg(3) & reg(7) & "--",    -- r7 = r3 xor r7
-         4  => OPC(nop)  & "-----------",                      -- nop
+         4  => OPC(nop)  & "---"  & "---"  & "---"  & "--",    -- nop
          others    => (others => '1')
          );
 
