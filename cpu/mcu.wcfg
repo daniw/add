@@ -3,7 +3,7 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="C:/__waj__/ECS/work_ISE/ueb9_mcu_v3/tb_mcu_isim_beh.wdb" id="1" type="auto">
+      <db_ref path="/home/daniw/data/studium/sem6/add/cpu/tb_mcu_isim_beh.wdb" id="1" type="auto">
          <top_modules>
             <top_module name="mcu_pkg" />
             <top_module name="numeric_std" />
@@ -12,7 +12,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="31" />
+   <WVObjectSize size="32" />
    <wvobject fp_name="/tb_mcu/rst" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
@@ -95,6 +95,50 @@
    <wvobject fp_name="/tb_mcu/MUT/i_cpu/i_ctrl/alu_out" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">alu_out</obj_property>
       <obj_property name="ObjectShortName">alu_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_mcu/MUT/i_cpu/i_reg/reg_blk" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">reg_blk[0:7]</obj_property>
+      <obj_property name="ObjectShortName">reg_blk[0:7]</obj_property>
+      <wvobject fp_name="/tb_mcu/MUT/i_cpu/i_reg/reg_blk[0]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[0]</obj_property>
+         <obj_property name="ObjectShortName">reg_blk[0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_mcu/MUT/i_cpu/i_reg/reg_blk[1]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[1]</obj_property>
+         <obj_property name="ObjectShortName">reg_blk[1]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_mcu/MUT/i_cpu/i_reg/reg_blk[2]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[2]</obj_property>
+         <obj_property name="ObjectShortName">reg_blk[2]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_mcu/MUT/i_cpu/i_reg/reg_blk[3]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[3]</obj_property>
+         <obj_property name="ObjectShortName">reg_blk[3]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_mcu/MUT/i_cpu/i_reg/reg_blk[4]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[4]</obj_property>
+         <obj_property name="ObjectShortName">reg_blk[4]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_mcu/MUT/i_cpu/i_reg/reg_blk[5]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[5]</obj_property>
+         <obj_property name="ObjectShortName">reg_blk[5]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_mcu/MUT/i_cpu/i_reg/reg_blk[6]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[6]</obj_property>
+         <obj_property name="ObjectShortName">reg_blk[6]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_mcu/MUT/i_cpu/i_reg/reg_blk[7]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[7]</obj_property>
+         <obj_property name="ObjectShortName">reg_blk[7]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
    </wvobject>
    <wvobject fp_name="divider8" type="divider">
       <obj_property name="label">BUS</obj_property>
