@@ -56,41 +56,83 @@ do
     then
         if ( [[ $op == "add" ]] );
         then
-            echo "         $i  => OPC($op)  & reg($dest) & reg($src1) & reg($src2) & \"--\",    -- r$dest = r$src1 + r$src2" >> $2
-        fi
-        if ( [[ $op == "sub" ]] );
+            echo "         $i  => OPC($op)   & reg($dest) & reg($src1) & reg($src2) & \"--\",    -- r$dest = r$src1 + r$src2" >> $2
+            i=$((i+1))
+        elif ( [[ $op == "sub" ]] );
         then
-            echo "         $i  => OPC($op)  & reg($dest) & reg($src1) & reg($src2) & \"--\",    -- r$dest = r$src1 - r$src2" >> $2
-        fi
-        if ( [[ $op == "andi" ]] );
+            echo "         $i  => OPC($op)   & reg($dest) & reg($src1) & reg($src2) & \"--\",    -- r$dest = r$src1 - r$src2" >> $2
+            i=$((i+1))
+        elif ( [[ $op == "andi" ]] );
         then
-            echo "         $i  => OPC($op) & reg($dest) & reg($src1) & reg($src2) & \"--\",    -- r$dest = r$src1 and r$src2" >> $2
-        fi
-        if ( [[ $op == "ori" ]] );
+            echo "         $i  => OPC($op)  & reg($dest) & reg($src1) & reg($src2) & \"--\",    -- r$dest = r$src1 and r$src2" >> $2
+            i=$((i+1))
+        elif ( [[ $op == "ori" ]] );
         then
-            echo "         $i  => OPC($op)  & reg($dest) & reg($src1) & reg($src2) & \"--\",    -- r$dest = r$src1 or r$src2" >> $2
-        fi
-        if ( [[ $op == "xori" ]] );
+            echo "         $i  => OPC($op)   & reg($dest) & reg($src1) & reg($src2) & \"--\",    -- r$dest = r$src1 or r$src2" >> $2
+            i=$((i+1))
+        elif ( [[ $op == "xori" ]] );
         then
-            echo "         $i  => OPC($op) & reg($dest) & reg($src1) & reg($src2) & \"--\",    -- r$dest = r$src1 xor r$src2" >> $2
-        fi
-        if ( [[ $op == "slai" ]] );
+            echo "         $i  => OPC($op)  & reg($dest) & reg($src1) & reg($src2) & \"--\",    -- r$dest = r$src1 xor r$src2" >> $2
+            i=$((i+1))
+        elif ( [[ $op == "slai" ]] );
         then
-            echo "         $i  => OPC($op) & reg($dest) & reg($src1) & \"---\"  & \"--\",    -- r$dest = r$src1 << 1" >> $2
-        fi
-        if ( [[ $op == "srai" ]] );
+            echo "         $i  => OPC($op)  & reg($dest) & reg($src1) & \"---\"  & \"--\",    -- r$dest = r$src1 << 1" >> $2
+            i=$((i+1))
+        elif ( [[ $op == "srai" ]] );
         then
-            echo "         $i  => OPC($op) & reg($dest) & reg($src1) & \"---\"  & \"--\",    -- r$dest = r$src1 >> 1" >> $2
-        fi
-        if ( [[ $op == "mov" ]] );
+            echo "         $i  => OPC($op)  & reg($dest) & reg($src1) & \"---\"  & \"--\",    -- r$dest = r$src1 >> 1" >> $2
+            i=$((i+1))
+        elif ( [[ $op == "mov" ]] );
         then
-            echo "         $i  => OPC($op)  & reg($dest) & reg($src1) & \"---\"  & \"--\",    -- r$dest = r$src1" >> $2
-        fi
-        if ( [[ $op = "nop" ]] );
+            echo "         $i  => OPC($op)   & reg($dest) & reg($src1) & \"---\"  & \"--\",    -- r$dest = r$src1" >> $2
+            i=$((i+1))
+        elif ( [[ $op = "addil" ]] );
         then
-            echo "         $i  => OPC($op)  & \"---\"  & \"---\"  & \"---\"  & \"--\",    -- nop" >> $2
+            echo "         $i  => OPC($op) & reg($dest) & \"$src1\",                -- r$dest = r$dest + \"$src1\"" >> $2
+            i=$((i+1))
+        elif ( [[ $op = "addih" ]] );
+        then
+            echo "         $i  => OPC($op) & reg($dest) & \"$src1\",                -- r$dest = r$dest + \"$src1\"" >> $2
+            i=$((i+1))
+        elif ( [[ $op = "setil" ]] );
+        then
+            echo "         $i  => OPC($op) & reg($dest) & \"$src1\",                -- r$dest = r$dest + \"$src1\"" >> $2
+            i=$((i+1))
+        elif ( [[ $op = "setih" ]] );
+        then
+            echo "         $i  => OPC($op) & reg($dest) & \"$src1\",                -- r$dest = r$dest + \"$src1\"" >> $2
+            i=$((i+1))
+        elif ( [[ $op = "ld" ]] );
+        then
+            echo "         $i  => OPC($op)    & reg($dest) & reg($src1) & \"---\"  & \"--\",    -- r$dest = *r$src1" >> $2
+            i=$((i+1))
+        elif ( [[ $op = "st" ]] );
+        then
+            echo "         $i  => OPC($op)    & reg($dest) & reg($src1) & \"---\"  & \"--\",    -- *r$src1 = r$dest" >> $2
+            i=$((i+1))
+        elif ( [[ $op = "jmp" ]] );
+        then
+            echo "         $i  => OPC($op)   & \"---\"  & \"$dest\",                -- $op \"$dest\"" >> $2
+            i=$((i+1))
+        elif ( [[ $op = "bne" ]] );
+        then
+            echo "         $i  => OPC($op)   & \"---\"  & \"$dest\",                -- $op \"$dest\"" >> $2
+            i=$((i+1))
+        elif ( [[ $op = "bge" ]] );
+        then
+            echo "         $i  => OPC($op)   & \"---\"  & \"$dest\",                -- $op \"$dest\"" >> $2
+            i=$((i+1))
+        elif ( [[ $op = "blt" ]] );
+        then
+            echo "         $i  => OPC($op)   & \"---\"  & \"$dest\",                -- $op \"$dest\"" >> $2
+            i=$((i+1))
+        elif ( [[ $op = "nop" ]] );
+        then
+            echo "         $i  => OPC($op)   & \"---\"  & \"---\"  & \"---\"  & \"--\",    -- nop" >> $2
+            i=$((i+1))
+        else
+            echo "Unknown instruction: $op"
         fi
-        i=$((i+1))
     fi
 done < $1
 
@@ -114,4 +156,4 @@ echo "end rtl;" >> $2
 
 echo finished
 
-# cat $2
+cat $2
