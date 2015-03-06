@@ -52,7 +52,7 @@ echo "    -- addr    Opcode     Rdest    Rsrc1    Rsrc2              description
 echo "    ---------------------------------------------------------------------------" >> $2
 
 # Actual assembler interpratation
-while IFS=' ' read op dest src1 src2
+while IFS=' ' read op dest src1 src2 comment
 do
     if ! ( [[ $op == \#* ]] || [[ -z $op ]] ); # Ignore comment lines
     then
