@@ -28,20 +28,25 @@ entity cpu_alu is
 end cpu_alu;
 
 architecture rtl of cpu_alu is
+
+    signal result_int : std_logic_vector(DW-1 downto 0);
   
 begin
   
+  -- output assignment
+  result <= result_int;
+
   -----------------------------------------------------------------------------
   -- ISE workaround (:-((
   -----------------------------------------------------------------------------
   g_ISE: if ISE_TOOL generate 
-    with to_integer(unsigned(alu_in.op)) select result <=
+    with to_integer(unsigned(alu_in.op)) select result_int <=
       -- Opcode 0: add
       std_logic_vector(unsigned(oper1) + unsigned(oper2)) when 0,
       -- Opcode 1: sub
       std_logic_vector(unsigned(oper1) - unsigned(oper2)) when 1,
       -- Opcode 2: and
-      oper1 or oper2                                      when 2,
+      oper1 and oper2                                     when 2,
       -- Opcode 3: or
       oper1 or oper2                                      when 3,
       -- Opcode 4: xor
@@ -62,10 +67,10 @@ begin
   -- (also note that the complementary attribute to 'val is 'pos)
   -----------------------------------------------------------------------------
   g_NOT_ISE: if not ISE_TOOL generate 
-    with t_alu_instr'val(to_integer(unsigned(alu_in.op))) select result <=
+    with t_alu_instr'val(to_integer(unsigned(alu_in.op))) select result_int <=
       std_logic_vector(unsigned(oper1) + unsigned(oper2)) when add,
       std_logic_vector(unsigned(oper1) - unsigned(oper2)) when sub,
-      oper1 or oper2                                      when andi,
+      oper1 and oper2                                     when andi,
       oper1 or oper2                                      when ori,
       oper1 xor oper2                                     when xori,
       oper1(DW-2 downto 0) & '0'                          when slai,
@@ -73,5 +78,46 @@ begin
       oper1                                               when mov,
       (others =>'0')                                      when others;
   end generate g_NOT_ISE;
+
+  -----------------------------------------------------------------------------
+  -- Update and register flags N, Z, C, O with valid ALU results
+  -----------------------------------------------------------------------------
+  P_flag: process(clk)
+  begin
+    if rising_edge(clk) then
+      if alu_in.enb = '1' then
+        -- N, updated with each operation -------------------------------------
+        alu_out.flag(N) <= result_int(DW-1);
+        -- Z, updated with each operation -------------------------------------
+        alu_out.flag(Z) <= '0';
+        if to_integer(unsigned(result_int)) = 0 then
+          alu_out.flag(Z) <= '1';
+        end if;
+        -- C, updated with add/sub only ---------------------------------------
+        if to_integer(unsigned(alu_in.op)) = 0 then
+          -- add
+          alu_out.flag(C) <= (oper1(DW-1) and     oper2(DW-1))      or
+                             (oper1(DW-1) and not result_int(DW-1)) or
+                             (oper2(DW-1) and not result_int(DW-1));
+        elsif to_integer(unsigned(alu_in.op)) = 1 then
+          -- sub
+          alu_out.flag(C) <= (oper2(DW-1)      and not oper1(DW-1))      or
+                             (result_int(DW-1) and not oper1(DW-1))      or
+                             (oper2(DW-1)      and     result_int(DW-1));
+        end if;
+        -- O, updated with add/sub only --------------------------------------
+        if to_integer(unsigned(alu_in.op)) = 0 then
+          -- add
+          alu_out.flag(O) <= (not oper1(DW-1) and not oper2(DW-1) and     result_int(DW-1)) or
+                             (    oper1(DW-1) and     oper2(DW-1) and not result_int(DW-1));
+        elsif to_integer(unsigned(alu_in.op)) = 1 then
+          -- sub
+          alu_out.flag(O) <= (    oper1(DW-1) and not oper2(DW-1) and not result_int(DW-1)) or
+                             (not oper1(DW-1) and     oper2(DW-1) and     result_int(DW-1));
+        end if;
+      end if;
+    end if;
+  end process;
+  
 
 end rtl;
