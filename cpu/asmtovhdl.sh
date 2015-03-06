@@ -1,8 +1,10 @@
 #!/bin/bash
 # Script for converting asm files into vhdl code
+#
+# author: daniw
 # 
 # Usage: 
-# ./asttovhdl.sh input.asm output.vhdl
+# ./asmtovhdl.sh input.asm output.vhd
 
 echo "################################"
 echo "# Assembler asmtovhdl by daniw #"
@@ -156,4 +158,4 @@ echo "end rtl;" >> $2
 
 echo finished
 
-cat $2
+# cat $2
