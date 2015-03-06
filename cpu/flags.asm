@@ -11,4 +11,8 @@ add 0 7 6   # add r0, r7, r6
 st  0 3     # st r0, r3
 sub 0 7 6   # sub r1, r7, r6
 st  0 0     # st r0, r0
+ld  4 1     # ld r4, r1
+ld  5 2     # ld r5, r2
+ld  6 3     # ld r6, r3
+ld  7 0     # ld r7, r0
 

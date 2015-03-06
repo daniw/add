@@ -83,7 +83,7 @@ begin
   begin
     -- default assignments
     n_st             <= c_st; -- remain in current state
-    r_wb             <= '0';
+    r_wb             <= '1';
     instr_enb        <= '0';
     reg_out.enb_res  <= '0';
     reg_out.enb_data <= '0';
@@ -129,7 +129,7 @@ begin
         else
           -- store instruction
           -- write data from register to memory and start next instr. cycle 
-          r_wb <= '1';
+          r_wb <= '0';
           n_st <= s_if; 
         end if;
       when s_rw =>

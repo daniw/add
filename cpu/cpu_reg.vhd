@@ -58,10 +58,10 @@ begin
   begin
     if rst = '1' then
       reg_blk <= (
-                  0      => std_logic_vector(to_unsigned(16#55_FF#, DW)),
-                  1      => std_logic_vector(to_unsigned(16#AA_FF#, DW)),
-                  2      => std_logic_vector(to_unsigned(16#00_AA#, DW)),
-                  3      => std_logic_vector(to_unsigned(16#00_55#, DW)),
+                  0      => std_logic_vector(to_unsigned(16#00_40#, DW)),
+                  1      => std_logic_vector(to_unsigned(16#00_41#, DW)),
+                  2      => std_logic_vector(to_unsigned(16#00_42#, DW)),
+                  3      => std_logic_vector(to_unsigned(16#00_43#, DW)),
                   others => (others => '0'));
     elsif rising_edge(clk) then
       if reg_in.enb_res = '1' then
