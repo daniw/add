@@ -1,11 +1,12 @@
 -------------------------------------------------------------------------------
 -- Entity: cpu_reg
 -- Author: Waj
+-- Date  : 28-Feb-14
 -------------------------------------------------------------------------------
 -- Description:
 -- Register block for the RISC-CPU of the von-Neuman MCU.
 -------------------------------------------------------------------------------
--- Total # of FFs: 8 x 16
+-- Total # of FFs: 8 * 16
 -------------------------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
@@ -30,17 +31,23 @@ architecture rtl of cpu_reg is
 begin
 
   -----------------------------------------------------------------------------
-  -- Mux data to Control Unit combinationally depending on source info.
-  -----------------------------------------------------------------------------
-  reg_out.data <= reg_blk(to_integer(unsigned(reg_in.src1)));
-  
-  -----------------------------------------------------------------------------
   -- Mux input data to ALU combinationally depending on source info from
   -- control unit.
   -----------------------------------------------------------------------------
   alu_op1 <= reg_blk(to_integer(unsigned(reg_in.src1)));
   alu_op2 <= reg_blk(to_integer(unsigned(reg_in.src2)));
-  
+
+  -----------------------------------------------------------------------------
+  -- Mux and register data/address to Control Unit depending on source info.
+  -----------------------------------------------------------------------------
+  P_mux: process(clk)
+  begin
+    if rising_edge(clk) then
+      reg_out.data <= reg_blk(to_integer(unsigned(reg_in.dest)));
+      reg_out.addr <= reg_blk(to_integer(unsigned(reg_in.src1)))(AW-1 downto 0);
+    end if;
+  end process;
+
   -----------------------------------------------------------------------------
   -- CPU register block
   -- Store ALU result depending on destination info from control unit.
@@ -50,14 +57,19 @@ begin
   P_reg: process(rst, clk)
   begin
     if rst = '1' then
-      reg_blk <= (0      => std_logic_vector(to_unsigned(16#55_FF#, DW)),
+      reg_blk <= (
+                  0      => std_logic_vector(to_unsigned(16#55_FF#, DW)),
                   1      => std_logic_vector(to_unsigned(16#AA_FF#, DW)),
                   2      => std_logic_vector(to_unsigned(16#00_AA#, DW)),
                   3      => std_logic_vector(to_unsigned(16#00_55#, DW)),
                   others => (others => '0'));
     elsif rising_edge(clk) then
-      if reg_in.enb = '1' then
+      if reg_in.enb_res = '1' then
+        -- store result from ALU
         reg_blk(to_integer(unsigned(reg_in.dest))) <= alu_res;
+      elsif reg_in.enb_data = '1' then
+        -- store data from memory (load instruction)
+        reg_blk(to_integer(unsigned(reg_in.dest))) <= reg_in.data;
       end if;
     end if;
   end process;

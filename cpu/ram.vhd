@@ -1,9 +1,9 @@
 -------------------------------------------------------------------------------
 -- Entity: ram
 -- Author: Waj
--- Date  : 11-May-13
+-- Date  : 01_Mar-14
 -------------------------------------------------------------------------------
--- Description: (ECS Uebung 9)
+-- Description: 
 -- Data memory for simple von-Neumann MCU with registered read data output.
 -------------------------------------------------------------------------------
 -- Total # of FFs: (2**AW)*DW + DW (or equivalent BRAM/distr. memory)
@@ -24,7 +24,13 @@ end ram;
 architecture rtl of ram is
 
   type t_ram is array (0 to 2**AWL-1) of std_logic_vector(DW-1 downto 0);
-  signal ram_array : t_ram; 
+  signal ram_array : t_ram := (
+                     -- prelimenary RAM initialization
+                     0      => std_logic_vector(to_unsigned(16#00_FF#, DW)),
+                     1      => std_logic_vector(to_unsigned(16#FF_01#, DW)),
+                     2      => std_logic_vector(to_unsigned(16#7F_FF#, DW)),
+                     3      => std_logic_vector(to_unsigned(16#7F_FE#, DW)),
+                     others => (others => '0'));
   
 begin
 

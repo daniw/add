@@ -1,13 +1,12 @@
 -------------------------------------------------------------------------------
 -- Entity: cpu_ctrl
 -- Author: Waj
--- Date  : 28-Feb-14
 -------------------------------------------------------------------------------
 -- Description:
 -- Control unit without instruction pipelining for the RISC-CPU of the
 -- von-Neuman MCU.
 -------------------------------------------------------------------------------
--- Total # of FFs: ... tbd ...
+-- Total # of FFs: 16 + 3
 -------------------------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
@@ -43,19 +42,18 @@ architecture rtl of cpu_ctrl is
   
 begin
 
-  -- Dummy assignments :ToDo:!!!!!!!!!!!!!!!!!!!!!!!!!!
-  r_wb <= '0';
-  reg_out.data <= data_in ;
-  with c_st select
-    data_out <= reg_in.data      when s_id,
-                (others => '0')  when others;
-
+  -----------------------------------------------------------------------------
+  -- Bus Interface
+  -----------------------------------------------------------------------------
+  data_out <= reg_in.data;
+  with c_st select addr <= reg_in.addr when s_ma,
+                           prc_in.pc   when others;
+  
   -----------------------------------------------------------------------------
   -- PC Interface
   -----------------------------------------------------------------------------
   prc_out.mode <= linear;
   prc_out.addr <= (others => '0');
-  addr <= prc_in.pc;
   
   -----------------------------------------------------------------------------
   -- Instruction register & decoding
@@ -72,6 +70,7 @@ begin
   reg_out.dest <= instr_reg(10 downto 8);
   reg_out.src1 <= instr_reg( 7 downto 5);
   reg_out.src2 <= instr_reg( 4 downto 2);
+  reg_out.data <= data_in;
 
   -----------------------------------------------------------------------------
   -- FSM: Mealy-type
@@ -80,47 +79,54 @@ begin
   -----------------------------------------------------------------------------
   -- memoryless process
   p_fsm_com: process (c_st, instr_reg)
+    variable v_opcode : natural range 0 to 2**OPCW-1;
   begin
     -- default assignments
-    n_st        <= c_st; -- remain in current state
-    instr_enb   <= '0';
-    reg_out.enb <= '0';
-    prc_out.enb <= '0';
+    n_st             <= c_st; -- remain in current state
+    r_wb             <= '0';
+    instr_enb        <= '0';
+    reg_out.enb_res  <= '0';
+    reg_out.enb_data <= '0';
+    alu_out.enb      <= '0';
+    prc_out.enb      <= '0';
+    -- opcode variable (to simplify code only)
+        -- This variable could be of type t_instr when using 'val attribute,
+        -- but this is not supported by ISE XST.
+        -- t_instr'val(to_integer(unsigned(instr_reg(DW-1 downto DW-(OPCW-OPAW)))))
+    v_opcode := to_integer(unsigned(instr_reg(DW-1 downto DW-OPCW)));
     -- specific assignments
     case c_st is
       when s_if =>
-        -- instruction fetch
+        -- instruction fetch ------------------------------------------------------
         n_st <= s_id;
       when s_id =>
-        -- instruction decode
+        -- instruction decode -----------------------------------------------------
         n_st <= s_ex;
         instr_enb <= '1';
       when s_ex =>
-        -- instruction execute
-        if to_integer(unsigned(instr_reg(DW-1 downto DW-(OPCW-OPAW)))) <= 7 then
-        -- Note: The condition above can be more elegantly written with 'val
-        -- attribute, but this is not supported by ISE XST.
-        -- if t_alu_instr'val(to_integer(unsigned(instr_reg(DW-1 downto DW-(OPCW-OPAW))))) <= mov  then
-          -- reg/reg-instruction:
-          -- increase PC, store result from ALU, and start next instr. cycle 
-          prc_out.enb <= '1';  
-          reg_out.enb <= '1';  
-          n_st        <= s_if; 
+        -- instruction execute ----------------------------------------------------
+        if v_opcode <= 7 then
+          -- reg/reg-instruction
+          -- increase PC, store result/flags from ALU, start next instr. cycle 
+          prc_out.enb     <= '1';  
+          reg_out.enb_res <= '1';  
+          alu_out.enb     <= '1';
+          n_st            <= s_if; 
         else
-          -- other instruction: ToDo!!!!!!!!!!!!!!!
-          n_st <= s_ma;        
+          -- other instruction: ToDo !!!!!!!!!!!!!!!!!
+          n_st <= s_if;        
         end if;
       when s_ma =>
-        -- memory access
-        n_st <= s_rw;
+        -- memory access --------------------------------------------------------
+        null; -- ToDo !!!!!!!!!!!!!!!!!!!!!!!!!
       when s_rw =>
-        -- register write-back
-        n_st <= s_if;
+        -- register write-back -------------------------------------------------
+        null; -- ToDo !!!!!!!!!!!!!!!!!!!!!!!!!
       when others =>
         n_st <= s_if; -- handle parasitic states
     end case;
   end process;
-  ----------------------------------------------------------------------------- 
+  ------------------------------------------------------------------------------ 
   -- sequential process
   -- # of FFs: 3 (assuming binary state encoding)
   P_fsm_seq: process(rst, clk)

@@ -1,8 +1,12 @@
 # period constraints for system clock
 NET "clk" TNM_NET = clk;
-TIMESPEC TS_clk = PERIOD "clk" 9.07 ns HIGH 50%;
-	
+TIMESPEC TS_clk = PERIOD "clk" 10.0 ns HIGH 50%;
+				    
 # I/O-constraints for system clock and reset input
 NET "clk" LOC = "C9"  |IOSTANDARD = LVCMOS33;
 NET "rst" LOC = "K17" |IOSTANDARD = LVTTL |PULLDOWN ; # = BTN_SOUTH
 
+
+# Set Register-to-Register pathes as multi-cycle (relax timing constraints)
+NET "*cpu/i_reg/reg_blk_*" TNM_NET = "reg_blk";
+TIMESPEC TS_cpureg = FROM reg_blk TO reg_blk 27 ns; 

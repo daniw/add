@@ -1,6 +1,7 @@
 -------------------------------------------------------------------------------
 -- Entity: mcu_pkg
 -- Author: Waj
+-- Date  : 11-May-13
 -------------------------------------------------------------------------------
 -- Description:
 -- VHDL package for definition of design parameters and types used throughout
@@ -82,7 +83,8 @@ package mcu_pkg is
          -- Others ---------------------------------------
          nop   => "11111"       -- 31: no operation     
          );
-  type t_flags is (Z, N);       -- ALU flags (zero, negative)
+  type t_flags is (Z, N, C, O); -- ALU flags (zero, negative, carry, overflow)
+  type t_flag_arr is array (t_flags) of std_logic;
   -- register block
   constant RIDW : natural range 1 to DW := 3; -- register ID word width
   type t_regid is array(0 to 7) of std_logic_vector(RIDW-1 downto 0);
@@ -145,14 +147,16 @@ package mcu_pkg is
   -----------------------------------------------------------------------------
   -- Control Unit / Register Block interface ----------------------------------
   type t_ctr2reg is record
-    enb  : std_logic;
-    src1 : std_logic_vector(RIDW-1 downto 0);
-    src2 : std_logic_vector(RIDW-1 downto 0);
-    dest : std_logic_vector(RIDW-1 downto 0);
-    data : std_logic_vector(DW-1 downto 0);
+    src1     : std_logic_vector(RIDW-1 downto 0);
+    src2     : std_logic_vector(RIDW-1 downto 0);
+    dest     : std_logic_vector(RIDW-1 downto 0);
+    enb_res  : std_logic;
+    data     : std_logic_vector(DW-1 downto 0);
+    enb_data : std_logic;
   end record;
   type t_reg2ctr is record
     data : std_logic_vector(DW-1 downto 0);
+    addr : std_logic_vector(AW-1 downto 0);
   end record;
   -- Control Unit / Program Counter interface --------------------------------
   type t_ctr2prc is record
@@ -170,7 +174,7 @@ package mcu_pkg is
     enb : std_logic;
   end record;
   type t_alu2ctr is record
-    flag : t_flags;
+    flag : t_flag_arr;
   end record;
 
 end mcu_pkg;
