@@ -1,9 +1,7 @@
 -------------------------------------------------------------------------------
 -- Entity: mcu
 -- Author: Waj
--- Date  : 11-May-13
 -------------------------------------------------------------------------------
--- Description: (ECS Uebung 9)
 -- Top-level description of a simple von-Neumann MCU.
 -- All top-level component are instantiated here. Also, tri-state buffers for
 -- bi-directional GPIO pins are described here.

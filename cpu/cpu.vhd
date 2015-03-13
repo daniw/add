@@ -1,7 +1,6 @@
 -------------------------------------------------------------------------------
 -- Entity: cpu
 -- Author: Waj
--- Date  : 28.Feb-14
 -------------------------------------------------------------------------------
 -- Description: 
 -- Top-level of CPU for simple von-Neumann MCU.
@@ -66,7 +65,6 @@ begin
   -- ALU ----------------------------------------------------------------------
   i_alu: entity work.cpu_alu
     port map(
-      rst      => rst,
       clk      => clk,
       alu_in   => ctr2alu,
       alu_out  => alu2ctr,

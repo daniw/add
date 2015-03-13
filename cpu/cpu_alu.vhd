@@ -1,7 +1,6 @@
 -------------------------------------------------------------------------------
 -- Entity: cpu_alu
 -- Author: Waj
--- Date  : 28-Feb-14
 -------------------------------------------------------------------------------
 -- Description:
 -- ALU for the RISC-CPU of the von-Neuman MCU.
@@ -16,8 +15,7 @@ use ieee.numeric_std.all;
 use work.mcu_pkg.all;
 
 entity cpu_alu is
-  port(rst      : in std_logic;
-       clk      : in std_logic;
+  port(clk      : in std_logic;
        -- CPU internal interfaces
        alu_in   : in  t_ctr2alu;
        alu_out  : out t_alu2ctr;
@@ -29,13 +27,13 @@ end cpu_alu;
 
 architecture rtl of cpu_alu is
 
-    signal result_int : std_logic_vector(DW-1 downto 0);
+  signal result_int : std_logic_vector(DW-1 downto 0);
   
 begin
-  
+
   -- output assignment
   result <= result_int;
-
+  
   -----------------------------------------------------------------------------
   -- ISE workaround (:-((
   -----------------------------------------------------------------------------
@@ -114,10 +112,10 @@ begin
           -- sub
           alu_out.flag(O) <= (    oper1(DW-1) and not oper2(DW-1) and not result_int(DW-1)) or
                              (not oper1(DW-1) and     oper2(DW-1) and     result_int(DW-1));
-        end if;
+        end if;     
       end if;
     end if;
   end process;
-  
+
 
 end rtl;

@@ -1,7 +1,6 @@
 -------------------------------------------------------------------------------
 -- Entity: mcu_pkg
 -- Author: Waj
--- Date  : 11-May-13
 -------------------------------------------------------------------------------
 -- Description:
 -- VHDL package for definition of design parameters and types used throughout
@@ -50,8 +49,11 @@ package mcu_pkg is
   -- programming with mnemonics rather than machine coding (see rom.vhd).
   constant OPCW : natural range 1 to DW := 5;    -- Opcode word width
   constant OPAW : natural range 1 to DW := 3;    -- ALU operation word width
-  type t_instr is (add, sub, andi, ori, xori, slai, srai, mov, ld, st,
-                   addil, addih, setil, setih, jmp, bne, bge, blt, nop);
+  type t_instr is (add, sub, andi, ori, xori, slai, srai, mov,
+                   ld, st,
+                   addil, addih, setil, setih,
+                   jmp, bne, bge, blt, bca, bov,
+                   nop);
   -- Instructions targeted at the ALU are defined by means of a sub-type.
   -- This allows changing the opcode of instructions without having to
   -- modify the source code of the ALU.
@@ -80,6 +82,8 @@ package mcu_pkg is
          bne   => "11001",      -- 25: branch if not equal (not Z)
          bge   => "11010",      -- 26: branch if greater/equal (not N or Z)
          blt   => "11011",      -- 27: branch if less than (N)
+         bca   => "11100",      -- 28: branch if carry set (C)
+         bov   => "11101",      -- 29: branch if overflow set (O)
          -- Others ---------------------------------------
          nop   => "11111"       -- 31: no operation     
          );
@@ -147,12 +151,13 @@ package mcu_pkg is
   -----------------------------------------------------------------------------
   -- Control Unit / Register Block interface ----------------------------------
   type t_ctr2reg is record
-    src1     : std_logic_vector(RIDW-1 downto 0);
-    src2     : std_logic_vector(RIDW-1 downto 0);
-    dest     : std_logic_vector(RIDW-1 downto 0);
-    enb_res  : std_logic;
-    data     : std_logic_vector(DW-1 downto 0);
-    enb_data : std_logic;
+    src1          : std_logic_vector(RIDW-1 downto 0);
+    src2          : std_logic_vector(RIDW-1 downto 0);
+    dest          : std_logic_vector(RIDW-1 downto 0);
+    enb_res       : std_logic;
+    data          : std_logic_vector(DW-1 downto 0);
+    enb_data_low  : std_logic;
+    enb_data_high : std_logic;
   end record;
   type t_reg2ctr is record
     data : std_logic_vector(DW-1 downto 0);
