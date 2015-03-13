@@ -1,8 +1,9 @@
 -------------------------------------------------------------------------------
 -- Entity: rom
 -- Author: Waj
+-- Date  : 11-May-13, 26-May-13
 -------------------------------------------------------------------------------
--- Description:
+-- Description: (ECS Uebung 9)
 -- Program memory for simple von-Neumann MCU with registerd read data output.
 -------------------------------------------------------------------------------
 -- Total # of FFs: DW
@@ -27,42 +28,28 @@ architecture rtl of rom is
     ---------------------------------------------------------------------------
     -- program code -----------------------------------------------------------
     ---------------------------------------------------------------------------
-    -- Opcode     Rdest    Rsrc1    Rsrc2                 description
+    -- addr    Opcode     Rdest    Rsrc1    Rsrc2              description
     ---------------------------------------------------------------------------
-       -- const A = 0xF001;
-       -- const B = 0xF000; // sign(A) = sign(B)
-       -- int x,y,z = 0;
-       -- while(sign(z) == sign(x)){
-       --    x += A;   // accumulate A
-       --    y += B;   // accumulate B 
-       --    z = x+y;  // N*(A+B)
-       -- }
-       --
-       --
-       -- set constant register values ---------------------------------------
-       -- RAM address of variable x hold in reg0
-16#00# => OPC(setil)& reg(0) & std_logic_vector(to_unsigned(16#40#,DW/2)), 
-       -- RAM address of variable y hold in reg1
-16#01# => OPC(setil)& reg(1) & std_logic_vector(to_unsigned(16#41#,DW/2)), 
-       -- RAM address of variable z hold in reg2
-16#02# => OPC(setil)& reg(2) & std_logic_vector(to_unsigned(16#42#,DW/2)),   
-       -- const A (0xF001) hold in reg6 (or load from ROM)
-16#03# => OPC(setil)& reg(6) & std_logic_vector(to_unsigned(16#01#,DW/2)),
-16#04# => OPC(setih)& reg(6) & std_logic_vector(to_unsigned(16#F0#,DW/2)),
-       -- const B (oxF000) hold in reg7 (or load from ROM)
-16#05# => OPC(setil)& reg(7) & std_logic_vector(to_unsigned(16#00#,DW/2)),
-16#06# => OPC(setih)& reg(7) & std_logic_vector(to_unsigned(16#F0#,DW/2)),
-       -- while loop starts here --------------------------------------------
-       --
-       --
-       -- ..... ToDo ..........
-       --
-       --
-       -- while loop ends here -----------------------------------------------
-       -- fill remaining addresses with NOP
-others => (others => '1')                        
-       );
-  
+         0  => OPC(setil) & reg(0) & "01000000",                -- r0 = r0 + "01000000"
+         1  => OPC(setil) & reg(1) & "01000001",                -- r1 = r1 + "01000001"
+         2  => OPC(setil) & reg(2) & "01000010",                -- r2 = r2 + "01000010"
+         3  => OPC(setil) & reg(6) & "00000001",                -- r6 = r6 + "00000001"
+         4  => OPC(setih) & reg(6) & "11110000",                -- r6 = r6 + "11110000"
+         5  => OPC(setil) & reg(7) & "00000000",                -- r7 = r7 + "00000000"
+         6  => OPC(setih) & reg(7) & "11110000",                -- r7 = r7 + "11110000"
+         7  => OPC(ld)    & reg(3) & reg(0) & "---"  & "--",    -- r3 = *r0
+         8  => OPC(add)   & reg(3) & reg(3) & reg(6) & "--",    -- r3 = r3 + r6
+         9  => OPC(st)    & reg(3) & reg(0) & "---"  & "--",    -- *r0 = r3
+         10  => OPC(ld)    & reg(4) & reg(1) & "---"  & "--",    -- r4 = *r1
+         11  => OPC(add)   & reg(4) & reg(4) & reg(7) & "--",    -- r4 = r4 + r7
+         12  => OPC(st)    & reg(4) & reg(1) & "---"  & "--",    -- *r1 = r4
+         13  => OPC(add)   & reg(5) & reg(3) & reg(4) & "--",    -- r5 = r3 + r4
+         14  => OPC(st)    & reg(5) & reg(2) & "---"  & "--",    -- *r2 = r5
+         15  => OPC(bov)   & "---"  & "00000010",                -- bov "00000010"
+         16  => OPC(jmp)   & "---"  & "00000111",                -- jmp "00000111"
+         others    => (others => '1')
+         );
+
 begin
 
   -----------------------------------------------------------------------------
@@ -74,5 +61,5 @@ begin
       bus_out.data <= rom_table(to_integer(unsigned(bus_in.addr)));
     end if;
   end process;
-  
+
 end rtl;

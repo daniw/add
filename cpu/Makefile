@@ -8,3 +8,6 @@ xor:
 
 flags:
 	./asmtovhdl.sh flags.asm rom.vhd
+
+task4:
+	./asmtovhdl.sh task4.asm rom.vhd
