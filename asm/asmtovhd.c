@@ -149,7 +149,9 @@ int main(int argc, char *argv[]) {
 		else if((!strcmp("jmp",oneword)) || 
 				(!strcmp("bne",oneword)) || 
 				(!strcmp("bge",oneword)) || 
-				(!strcmp("blt",oneword))
+				(!strcmp("blt",oneword)) ||
+				(!strcmp("bca",oneword)) ||
+				(!strcmp("bov",oneword))
 				)
 		{
 			strcpy(aktInstr->op,oneword);

@@ -128,6 +128,14 @@ do
         then
             echo "         $i  => OPC($op)   & \"---\"  & \"$dest\",                -- $op \"$dest\"" >> $2
             i=$((i+1))
+        elif ( [[ $op = "bca" ]] );
+        then
+            echo "         $i  => OPC($op)   & \"---\"  & \"$dest\",                -- $op \"$dest\"" >> $2
+            i=$((i+1))
+        elif ( [[ $op = "bov" ]] );
+        then
+            echo "         $i  => OPC($op)   & \"---\"  & \"$dest\",                -- $op \"$dest\"" >> $2
+            i=$((i+1))
         elif ( [[ $op = "nop" ]] );
         then
             echo "         $i  => OPC($op)   & \"---\"  & \"---\"  & \"---\"  & \"--\",    -- nop" >> $2
