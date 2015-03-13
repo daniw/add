@@ -121,7 +121,7 @@ int main(int argc, char *argv[]) {
 			strcpy(aktInstr->op,oneword);
 			genSpaceString(5-strlen(oneword),spaceAlign);
 			fscanf(asmFile,"%s %s",aktInstr->Rdest,aktInstr->Rsrc1);
-			sprintf(aktInstr->VHDL,"OPC(%s)&s   & reg(%s) & reg(%s) & \"---\"  & \"--\"",aktInstr->op,spaceAlign,aktInstr->Rdest,aktInstr->Rsrc1);
+			sprintf(aktInstr->VHDL,"OPC(%s)%s   & reg(%s) & reg(%s) & \"---\"  & \"--\"",aktInstr->op,spaceAlign,aktInstr->Rdest,aktInstr->Rsrc1);
 			numOfInstr++;
 		}
 		else if((!strcmp("addil",oneword)) || 
