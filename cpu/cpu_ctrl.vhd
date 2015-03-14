@@ -90,7 +90,8 @@ begin
   opcode       <= to_integer(unsigned(instr_reg(DW-1 downto DW-OPCW)));
   alu_out.op   <= instr_reg(DW-1-(OPCW-OPAW) downto DW-OPCW);
   reg_out.dest <= instr_reg(10 downto 8);
-  reg_out.src1 <= instr_reg( 7 downto 5);
+  reg_out.src1 <= instr_reg(10 downto 8) when (opcode = 12 or opcode = 13) else
+                  instr_reg( 7 downto 5);
   reg_out.src2 <= instr_reg( 4 downto 2);
 
   -----------------------------------------------------------------------------
@@ -137,7 +138,12 @@ begin
           n_st            <= s_if; 
         elsif opcode = 12 or opcode = 13 then
           -- addil/h instruction  ToDo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-          n_st <= s_if;        
+          -- increase PC, 
+          prc_out.enb     <= '1';
+          reg_out.enb_res <= '1';
+          alu_out.enb     <= '1';
+          alu_out.imm     <= "00000000"; -- ToDo Get constant from instruction
+          n_st            <= s_if;        
         elsif opcode = 14 then
           -- setil instruction
           -- increase PC, enable storage of low-byte, start next instr. cycle

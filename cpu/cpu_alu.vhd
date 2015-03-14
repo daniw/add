@@ -28,11 +28,17 @@ end cpu_alu;
 architecture rtl of cpu_alu is
 
   signal result_int : std_logic_vector(DW-1 downto 0);
+  signal imml       : std_logic_vector(DW-1 downto 0);
   
 begin
 
   -- output assignment
   result <= result_int;
+
+  -- immediate preprocessing
+  imml <= "00000000" & alu_in.imm) when alu_in.imm(7) else
+          "11111111" & alu_in.imm);
+  immh <= alu_in.imm & "00000000");
   
   -----------------------------------------------------------------------------
   -- ISE workaround (:-((
@@ -55,6 +61,10 @@ begin
       oper1(DW-1) & oper1(DW-1 downto 1)                  when 6,
       -- Opcode 7: mov
       oper1                                               when 7,
+      -- Opcode 12: addil
+      std_logic_vector(unsigned(oper1) + unsigned(imml)   when 12,
+      -- Opcode 13: addil
+      std_logic_vector(unsigned(oper1) + unsigned(immh)   when 13,
       -- other (ensures memory-less process)
       (others => '0')                                     when others;
   end generate g_ISE;
@@ -97,6 +107,16 @@ begin
           alu_out.flag(C) <= (oper1(DW-1) and     oper2(DW-1))      or
                              (oper1(DW-1) and not result_int(DW-1)) or
                              (oper2(DW-1) and not result_int(DW-1));
+        elsif (to_integer(unsigned(alu_in.op)) = 12) then
+          -- addil
+          alu_out.flag(C) <= (oper1(DW-1) and     imml(DW-1))      or
+                             (oper1(DW-1) and not result_int(DW-1)) or
+                             (imml(DW-1) and not result_int(DW-1));
+        elsif (to_integer(unsigned(alu_in.op)) = 13) then
+          -- addih
+          alu_out.flag(C) <= (oper1(DW-1) and     immh(DW-1))      or
+                             (oper1(DW-1) and not result_int(DW-1)) or
+                             (immh(DW-1) and not result_int(DW-1));
         elsif to_integer(unsigned(alu_in.op)) = 1 then
           -- sub
           alu_out.flag(C) <= (oper2(DW-1)      and not oper1(DW-1))      or
