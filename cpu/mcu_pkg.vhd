@@ -48,7 +48,8 @@ package mcu_pkg is
   -- Note: Defining the OPcode in the way shown below, allows assembler-style
   -- programming with mnemonics rather than machine coding (see rom.vhd).
   constant OPCW : natural range 1 to DW := 5;    -- Opcode word width
-  constant OPAW : natural range 1 to DW := 3;    -- ALU operation word width
+  constant OPAW : natural range 1 to DW := 4;    -- ALU operation word width
+  constant IOWW : natural range 1 to DW := 8;    -- immediate operand word width
   type t_instr is (add, sub, andi, ori, xori, slai, srai, mov,
                    ld, st,
                    addil, addih, setil, setih,
@@ -175,8 +176,9 @@ package mcu_pkg is
   end record;
   -- Control Unit / ALU interface ---------------------------------------------
   type t_ctr2alu is record
-    op  : std_logic_vector(OPAW-1 downto 0);
-    enb : std_logic;
+    op  : std_logic_vector(OPAW-1 downto 0);  -- operation
+    imm : std_logic_vector(IOWW-1 downto 0);  -- immediate operand
+    enb : std_logic;                          -- enable flag update
   end record;
   type t_alu2ctr is record
     flag : t_flag_arr;
