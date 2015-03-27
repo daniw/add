@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/_waj_/RT_lab/VHDL/VHDL/Testumgebung_FIR_1x5/VHDL_FIR_1x5_load_coeff_ml/fir_1d_load_tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="fir_1d_load_tb" />
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="textio" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="15" />
+   <wvobject fp_name="/fir_1d_load_tb/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_1d_load_tb/load" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">load</obj_property>
+      <obj_property name="ObjectShortName">load</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_1d_load_tb/coef" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">coef[6:0]</obj_property>
+      <obj_property name="ObjectShortName">coef[6:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_1d_load_tb/din" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">din[7:0]</obj_property>
+      <obj_property name="ObjectShortName">din[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_1d_load_tb/out_data" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">out_data[18:0]</obj_property>
+      <obj_property name="ObjectShortName">out_data[18:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_1d_load_tb/load_done" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">load_done</obj_property>
+      <obj_property name="ObjectShortName">load_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_1d_load_tb/err_cnt" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">err_cnt</obj_property>
+      <obj_property name="ObjectShortName">err_cnt</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider17" type="divider">
+      <obj_property name="label">MUT</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_1d_load_tb/uut/stage" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">stage[4:0]</obj_property>
+      <obj_property name="ObjectShortName">stage[4:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_1d_load_tb/uut/load_reg" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">load_reg</obj_property>
+      <obj_property name="ObjectShortName">load_reg</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_1d_load_tb/uut/reload_coef" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reload_coef</obj_property>
+      <obj_property name="ObjectShortName">reload_coef</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_1d_load_tb/uut/store_coef" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">store_coef</obj_property>
+      <obj_property name="ObjectShortName">store_coef</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_1d_load_tb/uut/cnt" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">cnt</obj_property>
+      <obj_property name="ObjectShortName">cnt</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_1d_load_tb/uut/coef_buf" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">coef_buf[4:0]</obj_property>
+      <obj_property name="ObjectShortName">coef_buf[4:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_1d_load_tb/uut/coef_reg" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">coef_reg[4:0]</obj_property>
+      <obj_property name="ObjectShortName">coef_reg[4:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+</wave_config>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/_waj_/RT_lab/Testumgebung_FIR_5x5/VHDL_FIR_5x5_load_coeff_ml/fir_2d_trn_load_tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="fir_2d_trn_load_tb" />
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="textio" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="27" />
+   <wvobject fp_name="divider37" type="divider">
+      <obj_property name="label">2d_FIR_Top</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_2d_trn_load_tb/uut/MULT_1/clk_1" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_1</obj_property>
+      <obj_property name="ObjectShortName">clk_1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_2d_trn_load_tb/uut/MULT_1/ce_1" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ce_1</obj_property>
+      <obj_property name="ObjectShortName">ce_1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_2d_trn_load_tb/uut/coef" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">coef[6:0]</obj_property>
+      <obj_property name="ObjectShortName">coef[6:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_2d_trn_load_tb/uut/gain" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">gain[19:0]</obj_property>
+      <obj_property name="ObjectShortName">gain[19:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_2d_trn_load_tb/uut/line1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">line1[7:0]</obj_property>
+      <obj_property name="ObjectShortName">line1[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_2d_trn_load_tb/uut/line2" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">line2[7:0]</obj_property>
+      <obj_property name="ObjectShortName">line2[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_2d_trn_load_tb/uut/line3" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">line3[7:0]</obj_property>
+      <obj_property name="ObjectShortName">line3[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_2d_trn_load_tb/uut/line4" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">line4[7:0]</obj_property>
+      <obj_property name="ObjectShortName">line4[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_2d_trn_load_tb/uut/line5" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">line5[7:0]</obj_property>
+      <obj_property name="ObjectShortName">line5[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_2d_trn_load_tb/uut/load_1" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">load_1</obj_property>
+      <obj_property name="ObjectShortName">load_1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_2d_trn_load_tb/uut/load_2" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">load_2</obj_property>
+      <obj_property name="ObjectShortName">load_2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_2d_trn_load_tb/uut/load_3" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">load_3</obj_property>
+      <obj_property name="ObjectShortName">load_3</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_2d_trn_load_tb/uut/load_4" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">load_4</obj_property>
+      <obj_property name="ObjectShortName">load_4</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_2d_trn_load_tb/uut/load_5" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">load_5</obj_property>
+      <obj_property name="ObjectShortName">load_5</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_2d_trn_load_tb/uut/dout" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dout[7:0]</obj_property>
+      <obj_property name="ObjectShortName">dout[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider47" type="divider">
+      <obj_property name="label">ABS_VAL</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_2d_trn_load_tb/uut/ABS_1/val_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">val_in[21:0]</obj_property>
+      <obj_property name="ObjectShortName">val_in[21:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_2d_trn_load_tb/uut/ABS_1/outreg" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">outreg[21:0]</obj_property>
+      <obj_property name="ObjectShortName">outreg[21:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_2d_trn_load_tb/uut/ABS_1/val_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">val_out[22:0]</obj_property>
+      <obj_property name="ObjectShortName">val_out[22:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider36" type="divider">
+      <obj_property name="label">Mult</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_2d_trn_load_tb/uut/MULT_1/factor_in_1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">factor_in_1[22:0]</obj_property>
+      <obj_property name="ObjectShortName">factor_in_1[22:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_2d_trn_load_tb/uut/MULT_1/factor_in_2" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">factor_in_2[19:0]</obj_property>
+      <obj_property name="ObjectShortName">factor_in_2[19:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_2d_trn_load_tb/uut/MULT_1/product_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">product_out[42:0]</obj_property>
+      <obj_property name="ObjectShortName">product_out[42:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_2d_trn_load_tb/uut/MULT_1/factor_1_buf" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">factor_1_buf[22:0]</obj_property>
+      <obj_property name="ObjectShortName">factor_1_buf[22:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_2d_trn_load_tb/uut/MULT_1/factor_2_buf" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">factor_2_buf[19:0]</obj_property>
+      <obj_property name="ObjectShortName">factor_2_buf[19:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_2d_trn_load_tb/uut/MULT_1/delayline" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">delayline[2:0]</obj_property>
+      <obj_property name="ObjectShortName">delayline[2:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+</wave_config>

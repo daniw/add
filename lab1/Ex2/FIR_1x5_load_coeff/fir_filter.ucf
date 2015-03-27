@@ -1,0 +1,6 @@
+
+## Clock constraints
+NET "clk_1" TNM_NET = clk_1;
+TIMESPEC TS_clk_1 = PERIOD "clk_1" 100MHz;
+NET  clk_1  LOC = U23  | IOSTANDARD = LVCMOS25;
+

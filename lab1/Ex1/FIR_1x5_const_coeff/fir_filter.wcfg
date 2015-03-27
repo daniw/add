@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/__waj_/_work_/InnoLehre_MaHoSe/Testumgebung_FIR_1x5/VHDL_FIR_1x5_const_coeff/fir_1d_tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="fir_1d_tb" />
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="textio" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="5" />
+   <wvobject fp_name="divider17" type="divider">
+      <obj_property name="label">Testbench</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#a0a0a4</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_1d_tb/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_1d_tb/din" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">din[7:0]</obj_property>
+      <obj_property name="ObjectShortName">din[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fir_1d_tb/out_data" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">out_data[18:0]</obj_property>
+      <obj_property name="ObjectShortName">out_data[18:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider18" type="divider">
+      <obj_property name="label">UUT</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">#a0a0a4</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+</wave_config>
