@@ -17,7 +17,7 @@ end fir_1d_tb;
 architecture behavior of fir_1d_tb is
 
   -- Component Declaration for the Unit Under Test (UUT)
-  component fir_1d_trn is
+  component fir_1d_dir is
     generic
       (IN_DW, OUT_DW, COEF_DW, TAPS, DELAY : integer);
   port
@@ -73,14 +73,14 @@ architecture behavior of fir_1d_tb is
   -- 9_Gaussian    :  2    4    8    4    2
   ------------------------------------------
   constant mask_type : string := "9_Gaussian";
-  file f_stimuli   : text is in "..\1x5_Filter\" & mask_type & "\FIR_IN.txt";
-  file f_exp_resp  : text is in "..\1x5_Filter\" & mask_type & "\FIR_OUT.txt";
-  file f_act_resp  : text is out "..\1x5_Filter\" & mask_type & "\FIR_VHDL_OUT.txt";
+  file f_stimuli   : text is in "../1x5_Filter/" & mask_type & "/FIR_IN.txt";
+  file f_exp_resp  : text is in "../1x5_Filter/" & mask_type & "/FIR_OUT.txt";
+  file f_act_resp  : text is out "../1x5_Filter/" & mask_type & "/FIR_VHDL_OUT.txt";
                                   
 begin
 
   -- Instantiate the Unit Under Test 
-  uut : fir_1d_trn
+  uut : fir_1d_dir
     generic map (
       IN_DW   => IN_DW,
       OUT_DW  => OUT_DW,
