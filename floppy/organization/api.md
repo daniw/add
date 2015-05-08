@@ -5,7 +5,7 @@ Schnittstellenbeschreibung Floppy Controller
 |:----------|:------------------|
 | 0x80      | Switch            |
 | 0x81      | LED               |
-| 0x82      | ON/OFF            |
+| 0x82      | Enable            |
 | 0x83      | Mode              |
 | 0x84      | Status init       |
 | 0x85      | Status melody     |
@@ -17,7 +17,7 @@ Schnittstellenbeschreibung Floppy Controller
 |:--------------|:--------------|:--------------|
 | Switch        | OFF / released| ON / pressed  |
 | LED           | OFF           | ON            |
-| ON/OFF        | Module off    | Module on     |
+| Enable        | Module off    | Module on     |
 | Mode          | Fix frequency | Melody        |
 | Status init   | ready         | initializing  |
 | Status melody | ready         | playing       |
