@@ -406,7 +406,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.979899"
-     inkscape:cx="326.55135"
+     inkscape:cx="338.34658"
      inkscape:cy="814.76654"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -424,7 +424,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -543,10 +543,10 @@
     <rect
        style="fill:#1aa49e;fill-opacity:0.34817816;stroke:#000000;stroke-width:0.56148839;stroke-opacity:1"
        id="rect4425-6"
-       width="94.009949"
-       height="78.295647"
-       x="331.49503"
-       y="148.5715" />
+       width="122.29423"
+       height="158.60277"
+       x="319.35291"
+       y="147.56136" />
     <rect
        style="fill:#1aa49e;fill-opacity:0.34817816;stroke:#000000;stroke-opacity:1"
        id="rect4425-6-5"
@@ -579,14 +579,14 @@
          id="flowPara4509">MCU</flowPara></flowRoot>    <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:20px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="350"
-       y="178.7908"
+       x="351.03046"
+       y="181.82126"
        id="text4511"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4513"
-         x="350"
-         y="178.7908"
+         x="351.03046"
+         y="181.82126"
          style="font-size:31.25px">CPU</tspan></text>
     <rect
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.1097393;stroke-opacity:1"
@@ -628,13 +628,13 @@
        inkscape:connector-curvature="0" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3.99999952;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleInM-8);marker-end:url(#TriangleOutM-41)"
-       d="m 298.42858,298.79079 157.78571,0"
+       d="m 298.42858,368.79079 157.78571,0"
        id="path4349-4"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3.99999952;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleInM-8-7)"
-       d="m 380.07143,232.91386 0,67.07141"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3.99999928;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleInM-8-7)"
+       d="m 380.07144,312.59901 0,57.38627"
        id="path4349-4-4"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
