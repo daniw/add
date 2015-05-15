@@ -34,7 +34,10 @@ end gpio;
 
 architecture rtl of gpio is
   
-  
+		signal in_1, in_2 : std_logic_vector(7 downto 0);
+		-- signal out_1 : std_logic_vector(7 downto 0);
+		
+		
 begin
 
   -----------------------------------------------------------------------------
@@ -42,28 +45,41 @@ begin
   -- To be replaced.....
   -- # of FFs: ......
   -----------------------------------------------------------------------------  
-  to_LED(7 downto 4) <= from_SW;
-  to_LED(3) <= from_BTN_ROT_C;
-  to_LED(2) <= from_BTN_EAST;
-  to_LED(1) <= from_BTN_WEST;
-  to_LED(0) <= from_BTN_NORTH;
+--  to_LED(7 downto 4) <= from_SW;
+--  to_LED(3) <= from_BTN_ROT_C;
+--  to_LED(2) <= from_BTN_EAST;
+--  to_LED(1) <= from_BTN_WEST;
+--  to_LED(0) <= from_BTN_NORTH;
   
-  P_dummy: process(rst, clk)
+  
+
+  
+  P_synch : process(rst,clk)
+  begin
+	  if rst = '1' then
+			in_1 <= (others => '0');
+			in_2 <= (others => '0');
+		elsif rising_edge(clk) then
+			in_1(3 downto 0) <= from_SW;
+			in_1(4) <= from_BTN_EAST;
+			in_1(5) <= from_BTN_NORTH;
+			in_1(6) <= from_BTN_WEST;
+			in_1(7) <= from_BTN_ROT_C;
+			in_2 <= in_1;
+		end if;
+	end process;
+	
+  
+  P_busaccess : process(rst, clk)
   begin
     if rst = '1' then
       bus_out.data <= (others => '0');
     elsif rising_edge(clk) then
-      if bus_in.we = '1' then
-        if unsigned(bus_in.addr) > 0 then
-          -- bus_out.data <= bus_in.data;
---          pin_out.out_0 <= pin_in.in_0;
---          pin_out.out_1 <= pin_in.in_1;
---          pin_out.out_2 <= pin_in.in_2;
---          pin_out.out_3 <= pin_in.in_3;
---          pin_out.enb_0 <= pin_in.in_3 and pin_in.in_0;
---          pin_out.enb_1 <= pin_in.in_0 and pin_in.in_1;
---          pin_out.enb_2 <= pin_in.in_1 and pin_in.in_2;
---          pin_out.enb_3 <= pin_in.in_2 and pin_in.in_3;
+		bus_out.data(7 downto 0) <= in_2;
+		bus_out.data(15 downto 8) <= (others => '0');
+      if bus_in.we = '1' then -- write to register
+        if unsigned(bus_in.addr) = to_unsigned(16#81#,AW) then
+				to_LED <= bus_in.data(7 downto 0);
         end if;
       end if;
     end if;
