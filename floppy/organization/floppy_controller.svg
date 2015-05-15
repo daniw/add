@@ -25,8 +25,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="5.12"
-     inkscape:cx="426.0182"
-     inkscape:cy="894.96981"
+     inkscape:cx="235.22178"
+     inkscape:cy="807.66492"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -1031,7 +1031,7 @@
          sodipodi:role="line"
          id="tspan4179"
          x="116"
-         y="101.36218">init</tspan></text>
+         y="101.36218">status_init</tspan></text>
     <path
        sodipodi:type="arc"
        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
@@ -1212,5 +1212,16 @@
          id="tspan4293"
          x="105"
          y="239.36218">out</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="116"
+       y="236.36218"
+       id="text3173"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3175"
+         x="116"
+         y="236.36218">status_melody</tspan></text>
   </g>
 </svg>

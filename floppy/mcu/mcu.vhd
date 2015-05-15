@@ -17,12 +17,20 @@ entity mcu is
   port(rst     : in    std_logic;
        clk     : in    std_logic;
        -- General-Purpose I/O ports
-       GPIO_0 : inout std_logic_vector(DW-1 downto 0);
-       GPIO_1 : inout std_logic_vector(DW-1 downto 0);
-       GPIO_2 : inout std_logic_vector(DW-1 downto 0);
-       GPIO_3 : inout std_logic_vector(DW-1 downto 0);
+       -- GPIO_0 : inout std_logic_vector(DW-1 downto 0);
+       -- GPIO_1 : inout std_logic_vector(DW-1 downto 0);
+       -- GPIO_2 : inout std_logic_vector(DW-1 downto 0);
+       -- GPIO_3 : inout std_logic_vector(DW-1 downto 0);
        -- Dedicated LCD port
-       LCD    : out   std_logic_vector(LCD_PW-1 downto 0)
+       LCD    : out   std_logic_vector(LCD_PW-1 downto 0);
+		 
+		 -- LEDs Switches and Buttons
+		 LED : out std_logic_vector(7 downto 0);
+		 SW : in std_logic_vector(3 downto 0);
+		 ROT_C : in std_logic;
+		 BTN_EAST : in std_logic;
+		 BTN_WEST : in std_logic;
+		 BTN_NORTH : in std_logic
        );
 end mcu;
 
@@ -52,16 +60,16 @@ begin
   -----------------------------------------------------------------------------
   -- Tri-state buffers for GPIO pins
   -----------------------------------------------------------------------------
-  gpio_in.in_0 <= GPIO_0;
-  gpio_in.in_1 <= GPIO_1;
-  gpio_in.in_2 <= GPIO_2;
-  gpio_in.in_3 <= GPIO_3;
-  gen_gpin: for k in 0 to DW-1 generate
-    GPIO_0(k) <= gpio_out.out_0(k) when gpio_out.enb_0(k) = '1' else 'Z';
-    GPIO_1(k) <= gpio_out.out_1(k) when gpio_out.enb_1(k) = '1' else 'Z';
-    GPIO_2(k) <= gpio_out.out_2(k) when gpio_out.enb_2(k) = '1' else 'Z';
-    GPIO_3(k) <= gpio_out.out_3(k) when gpio_out.enb_3(k) = '1' else 'Z';
-  end generate;
+  -- gpio_in.in_0 <= GPIO_0;
+  -- gpio_in.in_1 <= GPIO_1;
+  -- gpio_in.in_2 <= GPIO_2;
+  -- gpio_in.in_3 <= GPIO_3;
+  -- gen_gpin: for k in 0 to DW-1 generate
+    -- GPIO_0(k) <= gpio_out.out_0(k) when gpio_out.enb_0(k) = '1' else 'Z';
+    -- GPIO_1(k) <= gpio_out.out_1(k) when gpio_out.enb_1(k) = '1' else 'Z';
+    -- GPIO_2(k) <= gpio_out.out_2(k) when gpio_out.enb_2(k) = '1' else 'Z';
+    -- GPIO_3(k) <= gpio_out.out_3(k) when gpio_out.enb_3(k) = '1' else 'Z';
+  -- end generate;
 
   -----------------------------------------------------------------------------
   -- LCD interface pins
@@ -120,8 +128,15 @@ begin
       clk     => clk,
       bus_in  => bus2gpio,
       bus_out => gpio2bus,
-      pin_in  => gpio_in,
-      pin_out => gpio_out
+      -- pin_in  => gpio_in,
+      -- pin_out => gpio_out,
+		
+		to_LED => LED,
+		from_SW => SW,
+		from_BTN_ROT_C => ROT_C,
+		from_BTN_EAST => BTN_EAST,
+		from_BTN_WEST => BTN_WEST,
+		from_BTN_NORTH => BTN_NORTH
     );
   
   -- LCD ----------------------------------------------------------------------
