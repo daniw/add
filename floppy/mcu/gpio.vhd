@@ -19,9 +19,7 @@ entity gpio is
        -- GPIO bus signals
        bus_in  : in  t_bus2rws;
        bus_out : out t_rws2bus;
-       -- GPIO pin signals
-       -- pin_in  : in  t_gpio_pin_in;
-       -- pin_out : out t_gpio_pin_out;
+
 		 -- LED, Switches and Buttons
 		 to_LED : out std_logic_vector(7 downto 0);
 		 from_SW : in std_logic_vector(3 downto 0);
@@ -37,7 +35,6 @@ architecture rtl of gpio is
 		signal in_1, in_2 : std_logic_vector(7 downto 0);
 		signal next_out, current_out : std_logic_vector(7 downto 0);
 		
-		
 begin
 
   -----------------------------------------------------------------------------
@@ -45,6 +42,8 @@ begin
   -- To be replaced.....
   -- # of FFs: ......
   -----------------------------------------------------------------------------  
+  
+-- For testing only !!! inout without CPU  
 --  to_LED(7 downto 4) <= from_SW;
 --  to_LED(3) <= from_BTN_ROT_C;
 --  to_LED(2) <= from_BTN_EAST;
@@ -54,7 +53,7 @@ begin
   
 
   
-  P_synch : process(rst,clk)
+  P_synch : process(rst,clk) -- for synchronizing the inputs with 2 FFs
   begin
 	  if rst = '1' then
 			in_1 <= (others => '0');
@@ -69,32 +68,23 @@ begin
 		end if;
 	end process;
 	
+	-- Connecting the internal Signals
 	to_LED <= current_out;
 	current_out <= next_out;
-	
---	P_outsave : process(rst, clk)
---	begin
---		if rst = '1' then
---			current_out <= (others => '0');
---		elsif rising_edge(clk) then
---			current_out <= next_out; 
---		end if;
---	end process;
-	
+		
   
   P_busaccess : process(rst, clk)
   begin
     if rst = '1' then
       bus_out.data <= (others => '0');
     elsif rising_edge(clk) then
-		next_out <= current_out;
-		bus_out.data(7 downto 0) <= in_2;
+		next_out <= current_out; -- take the same output if no new data avaiable
+		bus_out.data(7 downto 0) <= in_2; -- Only the low byte is used !
 		bus_out.data(15 downto 8) <= (others => '0');
       if bus_in.we = '1' then -- write to register
         if unsigned(bus_in.addr) = to_unsigned(16#01#,AWL) then
 				next_out <= bus_in.data(7 downto 0);--<= "01010111";
         end if;
-		  
       end if;
     end if;
   end process;

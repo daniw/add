@@ -48,8 +48,8 @@ architecture rtl of mcu is
   -- GPIO signals
   signal bus2gpio : t_bus2rws;
   signal gpio2bus : t_rws2bus;
-  signal gpio_in  : t_gpio_pin_in;
-  signal gpio_out : t_gpio_pin_out;
+  --signal gpio_in  : t_gpio_pin_in;
+  --signal gpio_out : t_gpio_pin_out;
   -- LCD signals
   signal bus2lcd : t_bus2rws;
   signal lcd2bus : t_rws2bus;
