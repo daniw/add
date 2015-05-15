@@ -157,7 +157,7 @@ int main(int argc, char *argv[]) {
 			strcpy(aktInstr->op,oneword);
 			genSpaceString(5-strlen(oneword),spaceAlign);
 			fscanf(asmFile,"%s",aktInstr->Rdest);
-			sprintf(aktInstr->VHDL,"OPC(%s)%s   & \"---\"  & \"%s\"",aktInstr->op,spaceAlign,aktInstr->Rdest);
+			sprintf(aktInstr->VHDL,"OPC(%s)%s   & \"---\"  & %s",aktInstr->op,spaceAlign,aktInstr->Rdest);
 			numOfInstr++;
 		}
 		else if((!strcmp("nop",oneword))
