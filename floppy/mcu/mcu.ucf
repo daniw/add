@@ -6,6 +6,22 @@ TIMESPEC TS_clk = PERIOD "clk" 12.0 ns HIGH 50%;
 NET "clk" LOC = "C9"  |IOSTANDARD = LVCMOS33;
 NET "rst" LOC = "K17" |IOSTANDARD = LVTTL |PULLDOWN ; # = BTN_SOUTH
 
+# I/O-constraints for LEDs
+NET "LED<7>" LOC = "F9" |IOSTANDARD = LVTTL |SLEW = SLOW |DRIVE = 8 ;
+NET "LED<6>" LOC = "E9" |IOSTANDARD = LVTTL |SLEW = SLOW |DRIVE = 8 ;
+NET "LED<5>" LOC = "D11" |IOSTANDARD = LVTTL |SLEW = SLOW |DRIVE = 8 ;
+NET "LED<4>" LOC = "C11" |IOSTANDARD = LVTTL |SLEW = SLOW |DRIVE = 8 ;
+NET "LED<3>" LOC = "F11" |IOSTANDARD = LVTTL |SLEW = SLOW |DRIVE = 8 ;
+NET "LED<2>" LOC = "E11" |IOSTANDARD = LVTTL |SLEW = SLOW |DRIVE = 8 ;
+NET "LED<1>" LOC = "E12" |IOSTANDARD = LVTTL |SLEW = SLOW |DRIVE = 8 ;
+NET "LED<0>" LOC = "F12" |IOSTANDARD = LVTTL |SLEW = SLOW |DRIVE = 8 ;
+
+# I/O-constraints for Switches
+NET "SW<0>" LOC = "L13" | IOSTANDARD = LVTTL | PULLUP ;
+NET "SW<1>" LOC = "L14" | IOSTANDARD = LVTTL | PULLUP ;
+NET "SW<2>" LOC = "H18" | IOSTANDARD = LVTTL | PULLUP ;
+NET "SW<3>" LOC = "N17" | IOSTANDARD = LVTTL | PULLUP ;
+
 
 # Set Register-to-Register pathes as multi-cycle (relax timing constraints)
 NET "i_cpu/i_reg/reg_blk*" TNM_NET = "reg_blk";

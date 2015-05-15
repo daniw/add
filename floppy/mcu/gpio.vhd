@@ -21,7 +21,10 @@ entity gpio is
        bus_out : out t_rws2bus;
        -- GPIO pin signals
        pin_in  : in  t_gpio_pin_in;
-       pin_out : out t_gpio_pin_out
+       pin_out : out t_gpio_pin_out;
+		 
+		 to_LED : out std_logic_vector(7 downto 0);
+		 from_SW : in std_logic_vector(3 downto 0)
        );
 end gpio;
 
@@ -35,6 +38,9 @@ begin
   -- To be replaced.....
   -- # of FFs: ......
   -----------------------------------------------------------------------------  
+  to_LED(7 downto 4) <= from_SW;
+  to_LED(3 downto 0) <= from_SW;
+  
   P_dummy: process(rst, clk)
   begin
     if rst = '1' then

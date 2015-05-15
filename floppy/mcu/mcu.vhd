@@ -22,7 +22,10 @@ entity mcu is
        GPIO_2 : inout std_logic_vector(DW-1 downto 0);
        GPIO_3 : inout std_logic_vector(DW-1 downto 0);
        -- Dedicated LCD port
-       LCD    : out   std_logic_vector(LCD_PW-1 downto 0)
+       LCD    : out   std_logic_vector(LCD_PW-1 downto 0);
+		 
+		 LED : out std_logic_vector(7 downto 0);
+		 SW : in std_logic_vector(3 downto 0)
        );
 end mcu;
 
@@ -121,7 +124,10 @@ begin
       bus_in  => bus2gpio,
       bus_out => gpio2bus,
       pin_in  => gpio_in,
-      pin_out => gpio_out
+      pin_out => gpio_out,
+		
+		to_LED => LED,
+		from_SW => SW
     );
   
   -- LCD ----------------------------------------------------------------------
