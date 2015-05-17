@@ -10,10 +10,12 @@ architecture TB of tb_mcu is
 
   signal rst    : std_logic;
   signal clk    : std_logic := '0';
-  signal GPIO_0 : std_logic_vector(DW-1 downto 0);
-  signal GPIO_1 : std_logic_vector(DW-1 downto 0);
-  signal GPIO_2 : std_logic_vector(DW-1 downto 0);
-  signal GPIO_3 : std_logic_vector(DW-1 downto 0);
+  signal LED : std_logic_vector(7 downto 0);
+  signal SW : std_logic_vector(3 downto 0);
+  signal ROT_C : std_logic;
+  signal BTN_EAST : std_logic;
+  signal BTN_WEST : std_logic;
+  signal BTN_NORTH : std_logic;
   signal LCD    : std_logic_vector(LCD_PW-1 downto 0);
    
 begin
@@ -23,15 +25,22 @@ begin
     port map(
       rst    => rst,
       clk    => clk,
-      GPIO_0 => GPIO_0,
-      GPIO_1 => GPIO_1,
-      GPIO_2 => GPIO_2,
-      GPIO_3 => GPIO_3,
+      LED => LED,
+      SW => SW,
+      ROT_C => ROT_C,
+      BTN_EAST => BTN_EAST,
+		BTN_WEST => BTN_WEST,
+		BTN_NORTH => BTN_NORTH,
       LCD    => LCD
       );
 
   -- generate reset
   rst   <= '1', '0' after 5us;
+  ROT_C <= '1', '0' after 1ms;
+  SW <= "0000";
+  BTN_EAST <= '0';
+  BTN_WEST <= '0';
+  BTN_NORTH <= '0';
 
   -- clock generation
   p_clk: process

@@ -64,7 +64,11 @@ begin
             -- PC := PC + addr
             v_addr := std_logic_vector(unsigned('0' & pc) + unsigned(ctr_in.addr));
             pc <= v_addr(AW-1 downto 0);
-            if v_addr(AW) = '1' then
+            if v_addr(AW) = '1' and ctr_in.addr(AW-1) = '0' then
+              -- overflow with addition of positive relative offset
+              exc <= rel_err;
+            elsif v_addr(AW) = '0' and ctr_in.addr(AW-1) = '1' then
+              -- underflow with addition of negative relative offset
               exc <= rel_err;
             end if;
           when others => null;
