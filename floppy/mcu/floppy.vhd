@@ -54,10 +54,99 @@ architecture rtl of floppy is
     -- melody rom
     type t_mel_rom is array (0 to 2**MEL_ADDR_WIDTH-1) of std_logic_vector(MEL_DUR_WIDTH+PITCH_WIDTH-1 downto 0); -- new type instead of std_logic_vector for easier separation of duration and pitch
     constant mel_rom            : t_mel_rom := (
-        0 => std_logic_vector(to_unsigned( 65, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 500, MEL_DUR_WIDTH)),
-        1 => std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 100, MEL_DUR_WIDTH)),
-        -- End of melody -> don not change!
-        1 => std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned(   0, MEL_DUR_WIDTH)),
+        ---------------------------------
+        -- Harold Faltermeyer - Axel F --
+        ---------------------------------
+        std_logic_vector(to_unsigned( 65, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 68, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 357, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 65, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
+        --......................................................................
+        std_logic_vector(to_unsigned( 65, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
+        -- probably rest here to separate tones
+        std_logic_vector(to_unsigned( 65, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 70, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 65, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 63, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
+        --......................................................................
+        std_logic_vector(to_unsigned( 65, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 72, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 357, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 65, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
+        --......................................................................
+        std_logic_vector(to_unsigned( 65, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
+        -- probably rest here to separate tones
+        std_logic_vector(to_unsigned( 65, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 73, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 72, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 68, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
+        --......................................................................
+        std_logic_vector(to_unsigned( 65, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 72, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 77, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 65, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 63, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
+        --......................................................................
+        std_logic_vector(to_unsigned( 63, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
+        -- probably rest here to separate tones
+        std_logic_vector(to_unsigned( 63, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 60, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 67, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 65, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
+        --......................................................................
+        std_logic_vector(to_unsigned( 65, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 476, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 476, MEL_DUR_WIDTH)),
+        --......................................................................
+        std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 952, MEL_DUR_WIDTH)),
+        --......................................................................
+        --======================================================================
+        --......................................................................
+        std_logic_vector(to_unsigned( 65, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 68, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 357, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 65, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
+        --......................................................................
+        std_logic_vector(to_unsigned( 65, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
+        -- probably rest here to separate tones
+        std_logic_vector(to_unsigned( 65, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 70, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 65, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 63, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
+        --......................................................................
+        std_logic_vector(to_unsigned( 65, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 72, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 357, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 65, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
+        --......................................................................
+        std_logic_vector(to_unsigned( 65, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
+        -- probably rest here to separate tones
+        std_logic_vector(to_unsigned( 65, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 73, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 72, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 68, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
+        --......................................................................
+        std_logic_vector(to_unsigned( 65, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 72, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 77, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 65, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 63, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
+        --......................................................................
+        std_logic_vector(to_unsigned( 63, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
+        -- probably rest here to separate tones
+        std_logic_vector(to_unsigned( 63, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 60, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 67, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 65, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
+        --......................................................................
+        std_logic_vector(to_unsigned( 65, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 476, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 476, MEL_DUR_WIDTH)),
+        --......................................................................
+        std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 952, MEL_DUR_WIDTH)),
+        --......................................................................
+        --======================================================================
+        --......................................................................
+        -- End of melody -> do not change!
+        std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned(   0, MEL_DUR_WIDTH)),
     );
 
     -- signal to cut pitch_fix
