@@ -354,7 +354,8 @@ begin
     --begin
         with to_integer(pitch_sel) select
         --                                         # clk                            MIDI    Frequency
-        pitch_conv <= std_logic_vector(to_unsigned(5772367, PITCH_CONV_WIDTH)) when   1, -- 8.661 [Hz]
+        pitch_conv <= std_logic_vector(to_unsigned(8388607, PITCH_CONV_WIDTH)) when   0, -- 8.661 [Hz]
+                      std_logic_vector(to_unsigned(5772367, PITCH_CONV_WIDTH)) when   1, -- 8.661 [Hz]
                       std_logic_vector(to_unsigned(5448389, PITCH_CONV_WIDTH)) when   2, -- 9.177 [Hz]
                       std_logic_vector(to_unsigned(5142594, PITCH_CONV_WIDTH)) when   3, -- 9.722 [Hz]
                       std_logic_vector(to_unsigned(4853963, PITCH_CONV_WIDTH)) when   4, -- 10.30 [Hz]
