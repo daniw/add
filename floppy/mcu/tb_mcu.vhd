@@ -17,6 +17,9 @@ architecture TB of tb_mcu is
   signal BTN_WEST : std_logic;
   signal BTN_NORTH : std_logic;
   signal LCD    : std_logic_vector(LCD_PW-1 downto 0);
+
+  signal step_to_floppy : std_logic;
+  signal dir_to_floppy  : std_logic;
    
 begin
 
@@ -31,13 +34,15 @@ begin
       BTN_EAST => BTN_EAST,
 		BTN_WEST => BTN_WEST,
 		BTN_NORTH => BTN_NORTH,
-      LCD    => LCD
+      LCD    => LCD,
+      step_to_floppy => step_to_floppy,
+      dir_to_floppy  => dir_to_floppy
       );
 
   -- generate reset
   rst   <= '1', '0' after 5us;
   ROT_C <= '1', '0' after 1ms;
-  SW <= "0000";
+  SW <= "0011";
   BTN_EAST <= '0';
   BTN_WEST <= '0';
   BTN_NORTH <= '0';

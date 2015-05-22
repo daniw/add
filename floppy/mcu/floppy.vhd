@@ -492,7 +492,7 @@ begin
 					 if (to_integer(unsigned(pitch_conv)) = 0) then
 					     step_int <= step_int;
 					 else
-                    step_int <= not step_int;
+                         step_int <= not step_int;
 					 end if;
             else
                 step_divider <= step_divider - 1;
