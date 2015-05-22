@@ -1,17 +1,17 @@
 Schnittstellenbeschreibung Floppy Controller
 ============================================
 
-| Address   | Register          |
-|:----------|:------------------|
-| 0x80      | Switch            |
-| 0x81      | LED               |
-| 0x82      | Enable            |
-| 0x83      | Mode              |
-| 0x84      | Status init       |
-| 0x85      | Status melody     |
-| 0x86      | Pitch Module 0    |
-| 0x87      | Pitch Module 1    |
-| ...       | ...               |
+| Address   | Register          | R/W   |
+|:----------|:------------------|:------|
+| 0x80      | Switch            | R     |
+| 0x81      | LED               | R/W   |
+| 0x82      | Enable            | R/W   |
+| 0x83      | Mode              | R/W   |
+| 0x84      | Status init       | R     |
+| 0x85      | Status melody     | R     |
+| 0x86      | Pitch Module 0    | R/W   |
+| 0x87      | Pitch Module 1    | R/W   |
+| ...       | ...               | ...   |
 
 | Register      | 0             | 1             |
 |:--------------|:--------------|:--------------|

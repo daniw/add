@@ -1,6 +1,6 @@
 # period constraints for system clock
 NET "clk" TNM_NET = clk;
-TIMESPEC TS_clk = PERIOD "clk" 12.0 ns HIGH 50%;
+TIMESPEC TS_clk = PERIOD "clk" 13.0 ns HIGH 50%;
 				    
 # I/O-constraints for system clock and reset input
 NET "clk" LOC = "C9"  |IOSTANDARD = LVCMOS33;
@@ -33,6 +33,11 @@ NET "ROT_C" LOC = "V16" | IOSTANDARD = LVTTL | PULLDOWN ;
 # I/O-constraints for ROT_A/B
 #NET "ROT_A" LOC = "K18" | IOSTANDARD = LVTTL | PULLUP ;
 #NET "ROT_B" LOC = "G18" | IOSTANDARD = LVTTL | PULLUP ;
+
+# I/O-constraints for hall sensors
+NET "step_to_floppy" LOC = "D7" | IOSTANDARD = LVTTL | PULLUP ;
+NET "dir_to_floppy"  LOC = "C7" | IOSTANDARD = LVTTL | PULLUP ;
+
 
 # Set Register-to-Register pathes as multi-cycle (relax timing constraints)
 NET "i_cpu/i_reg/reg_blk*" TNM_NET = "reg_blk";

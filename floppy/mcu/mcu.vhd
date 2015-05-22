@@ -25,12 +25,15 @@ entity mcu is
        LCD    : out   std_logic_vector(LCD_PW-1 downto 0);
 		 
 		 -- LEDs Switches and Buttons
-		 LED : out std_logic_vector(7 downto 0);
-		 SW : in std_logic_vector(3 downto 0);
-		 ROT_C : in std_logic;
-		 BTN_EAST : in std_logic;
-		 BTN_WEST : in std_logic;
-		 BTN_NORTH : in std_logic
+		 LED            : out std_logic_vector(7 downto 0);
+		 SW             : in std_logic_vector(3 downto 0);
+		 ROT_C          : in std_logic;
+		 BTN_EAST       : in std_logic;
+		 BTN_WEST       : in std_logic;
+		 BTN_NORTH      : in std_logic;
+
+         step_to_floppy : out std_logic;
+         dir_to_floppy  : out std_logic
        );
 end mcu;
 
@@ -136,7 +139,10 @@ begin
 		from_BTN_ROT_C => ROT_C,
 		from_BTN_EAST => BTN_EAST,
 		from_BTN_WEST => BTN_WEST,
-		from_BTN_NORTH => BTN_NORTH
+		from_BTN_NORTH => BTN_NORTH,
+
+        step_to_floppy => step_to_floppy,
+        dir_to_floppy  => dir_to_floppy
     );
   
   -- LCD ----------------------------------------------------------------------
