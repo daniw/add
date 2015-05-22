@@ -79,8 +79,7 @@ architecture rtl of floppy is
         std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
         std_logic_vector(to_unsigned( 60, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
         std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
-        std_logic_vector(to_unsigned( 53, PITCH_WIDTH)) & std_logic_vector(to_unsigned(  90, MEL_DUR_WIDTH)),
-        std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned(  29, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 53, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
         --......................................................................
         std_logic_vector(to_unsigned( 53, PITCH_WIDTH)) & std_logic_vector(to_unsigned(  89, MEL_DUR_WIDTH)),
         std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned(  30, MEL_DUR_WIDTH)),
@@ -102,8 +101,7 @@ architecture rtl of floppy is
         std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned(  60, MEL_DUR_WIDTH)),
         std_logic_vector(to_unsigned( 53, PITCH_WIDTH)) & std_logic_vector(to_unsigned(  89, MEL_DUR_WIDTH)),
         std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned(  30, MEL_DUR_WIDTH)),
-        std_logic_vector(to_unsigned( 51, PITCH_WIDTH)) & std_logic_vector(to_unsigned(  89, MEL_DUR_WIDTH)),
-        std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned(  30, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 51, PITCH_WIDTH)) & std_logic_vector(to_unsigned(  119, MEL_DUR_WIDTH)),
         --......................................................................
         std_logic_vector(to_unsigned( 51, PITCH_WIDTH)) & std_logic_vector(to_unsigned(  89, MEL_DUR_WIDTH)),
         std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned(  30, MEL_DUR_WIDTH)),
