@@ -59,15 +59,21 @@ architecture rtl of floppy is
         ---------------------------------
         std_logic_vector(to_unsigned( 41, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
         std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
-        std_logic_vector(to_unsigned( 44, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 357, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 44, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
         std_logic_vector(to_unsigned( 41, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
         --......................................................................
-        std_logic_vector(to_unsigned( 41, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 41, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 60, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 59, MEL_DUR_WIDTH)),
         -- probably rest here to separate tones
+        std_logic_vector(to_unsigned( 41, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 60, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 59, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 46, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
         std_logic_vector(to_unsigned( 41, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
-        std_logic_vector(to_unsigned( 46, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
-        std_logic_vector(to_unsigned( 41, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
-        std_logic_vector(to_unsigned( 39, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 39, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
         --......................................................................
         std_logic_vector(to_unsigned( 41, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
         std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
