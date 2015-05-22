@@ -226,9 +226,12 @@ begin
             tone_end <= '0';
         elsif rising_edge(clk) then
             if ((enable = '1') and (mode = '1') and (status_melody_reg = '1')) then
-                if mel_dur_cnt = 0 then
-                    mel_dur_cnt <= to_unsigned(to_integer(unsigned(duration_melody)) * NOF_CLK_DUR, MEL_DUR_CNT_WIDTH);
+                if mel_dur_cnt = 2 then
+                    mel_dur_cnt <= mel_dur_cnt - 1;
                     tone_end <= '1';
+                elsif mel_dur_cnt = 0 then
+                    mel_dur_cnt <= to_unsigned(to_integer(unsigned(duration_melody)) * NOF_CLK_DUR, MEL_DUR_CNT_WIDTH) + 1;
+                    tone_end <= '0';
                 else
                     mel_dur_cnt <= mel_dur_cnt - 1;
                     tone_end <= '0';
