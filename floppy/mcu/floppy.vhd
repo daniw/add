@@ -112,8 +112,7 @@ architecture rtl of floppy is
         std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned(  60, MEL_DUR_WIDTH)),
         std_logic_vector(to_unsigned( 55, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 178, MEL_DUR_WIDTH)),
         std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned(  60, MEL_DUR_WIDTH)),
-        std_logic_vector(to_unsigned( 53, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 178, MEL_DUR_WIDTH)),
-        std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned(  60, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 53, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
         --......................................................................
         std_logic_vector(to_unsigned( 53, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 356, MEL_DUR_WIDTH)),
         std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 120, MEL_DUR_WIDTH)),
@@ -586,7 +585,7 @@ begin
     dir_gen: process(rst, clk)
     begin
         if rst = '1' then
-            dir_reg <= '0';
+            dir_reg <= '1';
         elsif rising_edge(clk) then
             if step_cnt_end = '1' then
                 dir_reg <= not dir_reg;
