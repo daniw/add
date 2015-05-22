@@ -58,8 +58,8 @@ architecture rtl of floppy is
         -- Harold Faltermeyer - Axel F --
         ---------------------------------
         std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
-        std_logic_vector(to_unsigned( 53, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 417, MEL_DUR_WIDTH)),
-        std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned(  59, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 53, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 357, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
         std_logic_vector(to_unsigned( 56, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 417, MEL_DUR_WIDTH)),
         std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned(  59, MEL_DUR_WIDTH)),
         std_logic_vector(to_unsigned( 53, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 179, MEL_DUR_WIDTH)),
