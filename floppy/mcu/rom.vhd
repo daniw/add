@@ -39,7 +39,7 @@ architecture rtl of rom is
       10 => OPC(ld)      & reg(1) & reg(0) & "---"  & "--",            -- 
       11 => OPC(add)     & reg(1) & reg(1) & reg(3) & "--",            -- 
       12 => OPC(bne)     & "---"  & std_logic_vector(to_signed(-3,DW/2)),            -- 
-      13 => OPC(setil)   & reg(2) & std_logic_vector(to_unsigned(16#84#,DW/2)),            -- 
+      13 => OPC(setil)   & reg(2) & std_logic_vector(to_unsigned(16#86#,DW/2)),            -- 
       14 => OPC(setil)   & reg(0) & std_logic_vector(to_unsigned(69,DW/2)),            -- 
       15 => OPC(st)      & reg(0) & reg(2) & "---"  & "--",            -- 
       16 => OPC(add)     & reg(6) & reg(5) & reg(3) & "--",            -- 

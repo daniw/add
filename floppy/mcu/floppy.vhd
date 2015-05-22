@@ -59,7 +59,7 @@ architecture rtl of floppy is
         ---------------------------------
         std_logic_vector(to_unsigned( 53, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 357, MEL_DUR_WIDTH)),
         std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
-        std_logic_vector(to_unsigned( 56, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 238, MEL_DUR_WIDTH)),
+        std_logic_vector(to_unsigned( 56, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 357, MEL_DUR_WIDTH)),
         std_logic_vector(to_unsigned(  0, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
         std_logic_vector(to_unsigned( 53, PITCH_WIDTH)) & std_logic_vector(to_unsigned( 119, MEL_DUR_WIDTH)),
         --......................................................................
@@ -315,7 +315,7 @@ begin
     --begin
         with to_integer(pitch_sel) select
         --                                         # clk                            MIDI    Frequency
-        pitch_conv <= std_logic_vector(to_unsigned(8388607, PITCH_CONV_WIDTH)) when   0, -- 8.661 [Hz]
+        pitch_conv <= std_logic_vector(to_unsigned(0, PITCH_CONV_WIDTH)) when   0, -- 8.661 [Hz]
                       std_logic_vector(to_unsigned(5772367, PITCH_CONV_WIDTH)) when   1, -- 8.661 [Hz]
                       std_logic_vector(to_unsigned(5448389, PITCH_CONV_WIDTH)) when   2, -- 9.177 [Hz]
                       std_logic_vector(to_unsigned(5142594, PITCH_CONV_WIDTH)) when   3, -- 9.722 [Hz]
@@ -474,7 +474,11 @@ begin
         elsif rising_edge(clk) then
             if (step_divider = 0) then
                 step_divider <= unsigned(pitch_conv);
-                step_int <= not step_int;
+					 if (to_integer(unsigned(pitch_conv)) = 0) then
+					     step_int <= step_int;
+					 else
+                    step_int <= not step_int;
+					 end if;
             else
                 step_divider <= step_divider - 1;
                 step_int <= step_int;

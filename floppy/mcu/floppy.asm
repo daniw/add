@@ -11,7 +11,7 @@ setil 0 std_logic_vector(to_unsigned(16#84#,DW/2))	#read 0x84 init reg----------
 ld 1 0
 add 1 1 3
 bne std_logic_vector(to_signed(-3,DW/2))            #wait until init = 0
-setil 2 std_logic_vector(to_unsigned(16#84#,DW/2))	#0x86 pitch reg = 69 (Kammerton)
+setil 2 std_logic_vector(to_unsigned(16#86#,DW/2))	#0x86 pitch reg = 69 (Kammerton)
 setil 0 std_logic_vector(to_unsigned(69,DW/2))
 st 0 2
 add 6 5 3											#reg5 switch to reg6 oldswitch ------------read switch----------------------------------
