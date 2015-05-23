@@ -174,6 +174,78 @@
                      {ö}{{\"o}}1 }
     }
 
+    % VHDL
+    \newcommand\lstsettingvhdl{
+        \lstset{language=VHDL}
+        \lstloadlanguages{VHDL}
+        \lstset{basicstyle=\ttfamily,
+            numbers=left,
+            numberstyle=\tiny, 
+            numbersep=5pt,
+            breaklines=true,
+            %texcsstyle=\color{black},
+            backgroundcolor=\color{gray!10},
+            commentstyle=\color{darkgreen},
+            keywordstyle=\color{red}\bfseries,
+            stringstyle=\color{blue}\bfseries,
+            frame=single,
+            tabsize=4,
+            rulecolor=\color{black!30},
+            title=\lstname,
+            escapeinside={\%*}{*)},
+            breaklines=true,
+            breakatwhitespace=true,
+            framextopmargin=2pt,
+            framexbottommargin=2pt,
+            inputencoding=utf8,
+            extendedchars=true,
+            literate={Ö}{{\"O}}1
+                     {Ä}{{\"A}}1
+                     {Ü}{{\"U}}1
+                     {ü}{{\"u}}1
+                     {ä}{{\"a}}1
+                     {ö}{{\"o}}1 }
+    }
+
+\lstdefinelanguage[hslu]{Assembler}[x86masm]{Assembler}
+    {morekeywords={add, sub, andi, ori, xori, slai, srai, mov, addil, addih, setil, setih, ld, st, jmp, bne, bge, blt, nop}
+    sensitive=false,
+    morecomment=[l]{--}
+    }
+
+    % ASM
+    \newcommand\lstsettingasm{
+        \lstset{language=[hslu]Assembler}
+        \lstloadlanguages{[hslu]Assembler}
+        \lstset{basicstyle=\ttfamily,
+            numbers=left,
+            numberstyle=\tiny, 
+            numbersep=5pt,
+            breaklines=true,
+            %texcsstyle=\color{black},
+            backgroundcolor=\color{gray!10},
+            commentstyle=\color{darkgreen},
+            keywordstyle=\color{red}\bfseries,
+            stringstyle=\color{blue}\bfseries,
+            frame=single,
+            tabsize=4,
+            rulecolor=\color{black!30},
+            title=\lstname,
+            escapeinside={\%*}{*)},
+            breaklines=true,
+            breakatwhitespace=true,
+            framextopmargin=2pt,
+            framexbottommargin=2pt,
+            inputencoding=utf8,
+            extendedchars=true,
+            literate={Ö}{{\"O}}1
+                     {Ä}{{\"A}}1
+                     {Ü}{{\"U}}1
+                     {ü}{{\"u}}1
+                     {ä}{{\"a}}1
+                     {ö}{{\"o}}1 }
+    }
+
 % Bedingungen
     \usepackage{ifthen}     % Verzweigungen
 
@@ -235,7 +307,7 @@
         \fancyhead[C]{Hochschule Luzern - Technik \& Architektur}  % zentrierte Kopfzeile
         \fancyhead[R]{Timm Felix Baumann\\Elia Fankhauser\\Daniel Winz} % Kopfzeile rechts
         %
-        \fancyfoot[L]{Datenblatt Floppy-Controller}       % Fusszeile links
+        \fancyfoot[L]{Datenblatt Floppy-Music}       % Fusszeile links
         \fancyfoot[C]{\today}                       % Fusszeile zentriert
         \fancyfoot[R]{\thepage}                     % Fusszeile rechts
         %
