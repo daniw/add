@@ -23,6 +23,56 @@ sind jeweils Tonhöhe und die Spieldauer des jeweiligen Tones in
 \si{\milli\second} abgelegt. Ist die Spieldauer des jeweiligen Tones 
 abgelaufen, wird der nächste Ton geladen und abgespielt. Als Beispielmelodie 
 ist Axel F von Harold Faltermeyer implementiert. 
+
+\subsection{Memory Map}
+\begin{table}[h!]
+    \centering
+    \begin{zebratabular}{lll}
+        \rowcolor{gray}
+        Addresse  & Register          & R/W   \\
+        0x82      & Enable            & R/W   \\
+        0x83      & Mode              & R/W   \\
+        0x84      & Status init       & R     \\
+        0x85      & Status melody     & R     \\
+        0x86      & Pitch Module 0    & R/W   \\
+    \end{zebratabular}
+    \caption{Memory Map Floppy Controller}
+    \label{tab:mem_map_floppy}
+\end{table}
+
+\begin{table}[h!]
+    \centering
+    \begin{zebratabular}{lllllllllllllllll}
+        \rowcolor{gray}
+        Register        & 15    & 14    & 13    & 12    & 11    & 10    & 9     & 8     & 7     & 6     & 5     & 4     & 3     & 2     & 1     & 0     \\
+        Enable          & res   & res   & res   & res   & res   & res   & res   & res   & res   & res   & res   & res   & res   & res   & res   & En    \\
+        Mode            & res   & res   & res   & res   & res   & res   & res   & res   & res   & res   & res   & res   & res   & res   & res   & mode  \\
+        Status init     & res   & res   & res   & res   & res   & res   & res   & res   & res   & res   & res   & res   & res   & res   & res   & init  \\
+        Status melody   & res   & res   & res   & res   & res   & res   & res   & res   & res   & res   & res   & res   & res   & res   & res   & mel   \\
+        Pitch Module 0  & res   & res   & res   & res   & res   & res   & res   & res   & res   & \multicolumn{7}{c}{Pitch}                             \\
+    \end{zebratabular}
+    \caption{Registerinhalt Floppy Controller}
+    \label{tab:reg_content_floppy}
+\end{table}
+
+\begin{table}[h!]
+    \centering
+    \begin{zebratabular}{lll}
+        \rowcolor{gray}
+        \rowcolor{gray}
+        Register      & 0             & 1             \\
+        Enable        & Module off    & Module on     \\
+        Mode          & Fix frequency & Melody        \\
+        Status init   & ready         & initializing  \\
+        Status melody & ready         & playing       \\
+    \end{zebratabular}
+    \caption{Bitbedeutung Floppy Controller}
+    \label{tab:bit_floppy}
+\end{table}
+
+\clearpage
+
+\subsection{Zuordnung MIDI Nummer $\to$ Frequenz}
 \begin{table}[h!]
     \centering
     \begin{zebratabular}{ll}
