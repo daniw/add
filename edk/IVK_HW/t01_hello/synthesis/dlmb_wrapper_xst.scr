@@ -1,0 +1,13 @@
+run
+-opt_mode speed
+-netlist_hierarchy as_optimized
+-opt_level 1
+-p xc6slx150tfgg676-3
+-top dlmb_wrapper
+-ifmt MIXED
+-ifn dlmb_wrapper_xst.prj
+-ofn ../implementation/dlmb_wrapper.ngc
+-hierarchy_separator /
+-iobuf NO
+-sd {../implementation}
+-vlgincdir {"/home/daniw/data/studium/sem6/add/edk/IVK_HW/t01_hello/pcores/" "/opt/Xilinx/13.3/ISE_DS/EDK/hw/XilinxBFMinterface/pcores/" "/opt/Xilinx/13.3/ISE_DS/EDK/hw/XilinxProcessorIPLib/pcores/" }

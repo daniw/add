@@ -1,0 +1,45 @@
+
+**** Build of configuration Debug for project v01_initial_sw ****
+
+make all 
+Building file: ../src/ivk_camera.c
+Invoking: MicroBlaze g++ compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../v01_initial_bsp/microblaze_0/include -mxl-barrel-shift -mxl-pattern-compare -mcpu=v7.30.b -mno-xl-soft-mul -MMD -MP -MF"src/ivk_camera.d" -MT"src/ivk_camera.d" -o"src/ivk_camera.o" "../src/ivk_camera.c"
+../src/ivk_camera.c:3:1: warning: multi-line comment
+../src/ivk_camera.c:78:25: error: fmc_imageov.h: No such file or directory
+../src/ivk_camera.c:79: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘fmc_imageov’
+../src/ivk_camera.c:81:27: error: ov9710_config.h: No such file or directory
+In file included from ../src/ivk_camera.c:83:
+../src/ivk_camera.h:3:1: warning: multi-line comment
+In file included from ../src/ivk_camera.h:53,
+                 from ../src/ivk_camera.c:83:
+../src/ivk_camera.h:3:1: warning: multi-line comment
+In file included from ../src/ivk_camera.c:83:
+../src/ivk_camera.h:71: error: expected ‘)’ before ‘mode’
+../src/ivk_camera.h:85: error: expected ‘)’ before ‘mode’
+../src/ivk_camera.h:108: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘ivk_camera_present’
+../src/ivk_camera.h:133: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘ivk_camera_test_pattern_config’
+../src/ivk_camera.h:159: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘ivk_camera_flip_image’
+../src/ivk_camera.h:181: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘ivk_camera_auto_exposure_config’
+../src/ivk_camera.h:203: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘ivk_camera_auto_gain_config’
+../src/ivk_camera.h:225: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘ivk_camera_blc_config’
+../src/ivk_camera.h:246: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘ivk_camera_lenc_config’
+../src/ivk_camera.h:267: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘ivk_camera_awb_config’
+../src/ivk_camera.c:87: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘ov9710_vsync_negative’
+../src/ivk_camera.c:98: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘ov9710_vsync_positive’
+../src/ivk_camera.c:111: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘ov9710_dvp_config_default’
+../src/ivk_camera.c:134: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘ov9710_dvp_config_ccir656’
+../src/ivk_camera.c:161: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘ov9710_1280x721_cropped’
+../src/ivk_camera.c:200: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘ov9710_640x481_cropped’
+../src/ivk_camera.c:237: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘ov9710_undocumented’
+../src/ivk_camera.c:254: error: expected ‘)’ before ‘mode’
+../src/ivk_camera.c:291: error: expected ‘)’ before ‘mode’
+../src/ivk_camera.c:337: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘ivk_camera_present’
+../src/ivk_camera.c:387: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘ivk_camera_test_pattern_config’
+../src/ivk_camera.c:441: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘ivk_camera_flip_image’
+../src/ivk_camera.c:495: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘ivk_camera_auto_exposure_config’
+../src/ivk_camera.c:546: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘ivk_camera_auto_gain_config’
+../src/ivk_camera.c:597: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘ivk_camera_blc_config’
+../src/ivk_camera.c:647: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘ivk_camera_lenc_config’
+../src/ivk_camera.c:697: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘ivk_camera_awb_config’
+make: *** [src/ivk_camera.o] Error 1

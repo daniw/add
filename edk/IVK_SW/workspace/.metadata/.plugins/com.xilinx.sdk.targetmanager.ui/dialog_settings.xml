@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="/home/daniw/data/studium/sem6/add/edk/IVK_SW/workspace/t01_hello_hw/system_bd.bmm" key="t01_hello_hw-bmmFile"/>
+	<item value="/home/daniw/data/studium/sem6/add/edk/IVK_SW/workspace/t01_hello_hw/system.bit" key="t01_hello_hw-bitFile"/>
+	<item value="bootloop" key="t01_hello_hw-microblaze_0-initElf"/>
+</section>

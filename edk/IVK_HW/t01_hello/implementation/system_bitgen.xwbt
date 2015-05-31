@@ -1,0 +1,7 @@
+INFILE=/home/daniw/data/studium/sem6/add/edk/IVK_HW/t01_hello/implementation/system.ncd
+OUTFILE=/home/daniw/data/studium/sem6/add/edk/IVK_HW/t01_hello/implementation/system.bit
+FAMILY=Spartan6
+PART=xc6slx150t-3fgg676
+WORKINGDIR=/home/daniw/data/studium/sem6/add/edk/IVK_HW/t01_hello/implementation
+LICENSE=ISE
+USER_INFO=174116382_174116383_206270014_862

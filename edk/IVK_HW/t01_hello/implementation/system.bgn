@@ -1,0 +1,255 @@
+Release 13.3 - Bitgen O.76xd (lin64)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+PMSPEC -- Overriding Xilinx file
+</opt/Xilinx/13.3/ISE_DS/EDK/spartan6/data/spartan6.acd> with local file
+</opt/Xilinx/13.3/ISE_DS/ISE/spartan6/data/spartan6.acd>
+Loading device for application Rf_Device from file '6slx150t.nph' in environment
+/opt/Xilinx/13.3/ISE_DS/ISE/:/opt/Xilinx/13.3/ISE_DS/EDK.
+   "system" is an NCD, version 3.2, device xc6slx150t, package fgg676, speed -3
+Opened constraints file system.pcf.
+
+Fri Mar 20 18:28:28 2015
+
+/opt/Xilinx/13.3/ISE_DS/ISE/bin/lin64/unwrapped/bitgen -w -g TdoPin:PULLNONE -g StartUpClk:JTAGCLK system.ncd 
+
+Summary of Bitgen Options:
++----------------------+----------------------+
+| Option Name          | Current Setting      |
++----------------------+----------------------+
+| Compress             | (Not Specified)*     |
++----------------------+----------------------+
+| Readback             | (Not Specified)*     |
++----------------------+----------------------+
+| CRC                  | Enable*              |
++----------------------+----------------------+
+| DebugBitstream       | No*                  |
++----------------------+----------------------+
+| ConfigRate           | 2*                   |
++----------------------+----------------------+
+| StartupClk           | JtagClk              |
++----------------------+----------------------+
+| DonePin              | Pullup*              |
++----------------------+----------------------+
+| ProgPin              | Pullup*              |
++----------------------+----------------------+
+| TckPin               | Pullup*              |
++----------------------+----------------------+
+| TdiPin               | Pullup*              |
++----------------------+----------------------+
+| TdoPin               | Pullnone             |
++----------------------+----------------------+
+| TmsPin               | Pullup*              |
++----------------------+----------------------+
+| UnusedPin            | Pulldown*            |
++----------------------+----------------------+
+| GWE_cycle            | 6*                   |
++----------------------+----------------------+
+| GTS_cycle            | 5*                   |
++----------------------+----------------------+
+| LCK_cycle            | NoWait*              |
++----------------------+----------------------+
+| DONE_cycle           | 4*                   |
++----------------------+----------------------+
+| Persist              | No*                  |
++----------------------+----------------------+
+| DriveDone            | No*                  |
++----------------------+----------------------+
+| DonePipe             | No*                  |
++----------------------+----------------------+
+| Security             | None*                |
++----------------------+----------------------+
+| UserID               | 0xFFFFFFFF*          |
++----------------------+----------------------+
+| ActiveReconfig       | No*                  |
++----------------------+----------------------+
+| Partial              | (Not Specified)*     |
++----------------------+----------------------+
+| Encrypt              | No*                  |
++----------------------+----------------------+
+| Key0                 | pick*                |
++----------------------+----------------------+
+| StartCBC             | pick*                |
++----------------------+----------------------+
+| KeyFile              | (Not Specified)*     |
++----------------------+----------------------+
+| drive_awake          | No*                  |
++----------------------+----------------------+
+| Reset_on_err         | No*                  |
++----------------------+----------------------+
+| suspend_filter       | Yes*                 |
++----------------------+----------------------+
+| en_sw_gsr            | No*                  |
++----------------------+----------------------+
+| en_suspend           | No*                  |
++----------------------+----------------------+
+| sw_clk               | Startupclk*          |
++----------------------+----------------------+
+| sw_gwe_cycle         | 5*                   |
++----------------------+----------------------+
+| sw_gts_cycle         | 4*                   |
++----------------------+----------------------+
+| multipin_wakeup      | No*                  |
++----------------------+----------------------+
+| wakeup_mask          | 0x00*                |
++----------------------+----------------------+
+| ExtMasterCclk_en     | No*                  |
++----------------------+----------------------+
+| ExtMasterCclk_divide | 1*                   |
++----------------------+----------------------+
+| MaskVectorFile       | No*                  |
++----------------------+----------------------+
+| glutmask             | Yes*                 |
++----------------------+----------------------+
+| next_config_addr     | 0x00000000*          |
++----------------------+----------------------+
+| next_config_new_mode | No*                  |
++----------------------+----------------------+
+| next_config_boot_mode | 001*                 |
++----------------------+----------------------+
+| next_config_register_write | Enable*              |
++----------------------+----------------------+
+| golden_config_addr   | 0x00000000*          |
++----------------------+----------------------+
+| failsafe_user        | 0x0000*              |
++----------------------+----------------------+
+| TIMER_CFG            | None*                |
++----------------------+----------------------+
+| spi_buswidth         | 1*                   |
++----------------------+----------------------+
+| IEEE1532             | No*                  |
++----------------------+----------------------+
+| Binary               | No*                  |
++----------------------+----------------------+
+ *  Default setting.
+ ** The specified setting matches the default setting.
+
+There were 0 CONFIG constraint(s) processed from system.pcf.
+
+
+
+INFO:Data2MEM:100 - BRAM 'lmb_bram/lmb_bram/ramb16bwer_0' at 'RAMB16_X3Y48' location successfully updated with design data.
+
+
+INFO:Data2MEM:100 - BRAM 'lmb_bram/lmb_bram/ramb16bwer_1' at 'RAMB16_X3Y50' location successfully updated with design data.
+
+
+INFO:Data2MEM:100 - BRAM 'lmb_bram/lmb_bram/ramb16bwer_2' at 'RAMB16_X3Y52' location successfully updated with design data.
+
+
+INFO:Data2MEM:100 - BRAM 'lmb_bram/lmb_bram/ramb16bwer_3' at 'RAMB16_X3Y54' location successfully updated with design data.
+
+
+INFO:Data2MEM:100 - BRAM 'lmb_bram/lmb_bram/ramb16bwer_4' at 'RAMB16_X2Y60' location successfully updated with design data.
+
+
+INFO:Data2MEM:100 - BRAM 'lmb_bram/lmb_bram/ramb16bwer_5' at 'RAMB16_X2Y58' location successfully updated with design data.
+
+
+INFO:Data2MEM:100 - BRAM 'lmb_bram/lmb_bram/ramb16bwer_6' at 'RAMB16_X2Y56' location successfully updated with design data.
+
+
+INFO:Data2MEM:100 - BRAM 'lmb_bram/lmb_bram/ramb16bwer_7' at 'RAMB16_X3Y56' location successfully updated with design data.
+
+
+INFO:Data2MEM:100 - BRAM 'lmb_bram/lmb_bram/ramb16bwer_8' at 'RAMB16_X3Y68' location successfully updated with design data.
+
+
+INFO:Data2MEM:100 - BRAM 'lmb_bram/lmb_bram/ramb16bwer_9' at 'RAMB16_X3Y66' location successfully updated with design data.
+
+
+INFO:Data2MEM:100 - BRAM 'lmb_bram/lmb_bram/ramb16bwer_10' at 'RAMB16_X3Y64' location successfully updated with design data.
+
+
+INFO:Data2MEM:100 - BRAM 'lmb_bram/lmb_bram/ramb16bwer_11' at 'RAMB16_X3Y60' location successfully updated with design data.
+
+
+INFO:Data2MEM:100 - BRAM 'lmb_bram/lmb_bram/ramb16bwer_12' at 'RAMB16_X4Y60' location successfully updated with design data.
+
+
+INFO:Data2MEM:100 - BRAM 'lmb_bram/lmb_bram/ramb16bwer_13' at 'RAMB16_X3Y62' location successfully updated with design data.
+
+
+INFO:Data2MEM:100 - BRAM 'lmb_bram/lmb_bram/ramb16bwer_14' at 'RAMB16_X3Y58' location successfully updated with design data.
+
+
+INFO:Data2MEM:100 - BRAM 'lmb_bram/lmb_bram/ramb16bwer_15' at 'RAMB16_X4Y58' location successfully updated with design data.
+
+Running DRC.
+WARNING:PhysDesignRules:367 - The signal
+   <microblaze_0/microblaze_0/MicroBlaze_Core_I/Performance.Data_Flow_I/Register
+   _File_I/Using_LUT6.All_RAM32M[8].ram32m_i_RAMD_D1_O> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <microblaze_0/microblaze_0/MicroBlaze_Core_I/Performance.Data_Flow_I/Register
+   _File_I/Using_LUT6.All_RAM32M[9].ram32m_i_RAMD_D1_O> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <microblaze_0/microblaze_0/MicroBlaze_Core_I/Performance.Data_Flow_I/Register
+   _File_I/Using_LUT6.All_RAM32M[6].ram32m_i_RAMD_D1_O> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <microblaze_0/microblaze_0/MicroBlaze_Core_I/Performance.Data_Flow_I/Register
+   _File_I/Using_LUT6.All_RAM32M[4].ram32m_i_RAMD_D1_O> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <microblaze_0/microblaze_0/MicroBlaze_Core_I/Performance.Data_Flow_I/Register
+   _File_I/Using_LUT6.All_RAM32M[7].ram32m_i_RAMD_D1_O> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <microblaze_0/microblaze_0/MicroBlaze_Core_I/Performance.Data_Flow_I/Register
+   _File_I/Using_LUT6.All_RAM32M[3].ram32m_i_RAMD_D1_O> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <microblaze_0/microblaze_0/MicroBlaze_Core_I/Performance.Data_Flow_I/Register
+   _File_I/Using_LUT6.All_RAM32M[12].ram32m_i_RAMD_D1_O> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <microblaze_0/microblaze_0/MicroBlaze_Core_I/Performance.Data_Flow_I/Register
+   _File_I/Using_LUT6.All_RAM32M[1].ram32m_i_RAMD_D1_O> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <microblaze_0/microblaze_0/MicroBlaze_Core_I/Performance.Data_Flow_I/Register
+   _File_I/Using_LUT6.All_RAM32M[0].ram32m_i_RAMD_D1_O> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <microblaze_0/microblaze_0/MicroBlaze_Core_I/Performance.Data_Flow_I/Register
+   _File_I/Using_LUT6.All_RAM32M[11].ram32m_i_RAMD_D1_O> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <microblaze_0/microblaze_0/MicroBlaze_Core_I/Performance.Data_Flow_I/Register
+   _File_I/Using_LUT6.All_RAM32M[5].ram32m_i_RAMD_D1_O> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <microblaze_0/microblaze_0/MicroBlaze_Core_I/Performance.Data_Flow_I/Register
+   _File_I/Using_LUT6.All_RAM32M[2].ram32m_i_RAMD_D1_O> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <microblaze_0/microblaze_0/MicroBlaze_Core_I/Performance.Data_Flow_I/Register
+   _File_I/Using_LUT6.All_RAM32M[10].ram32m_i_RAMD_D1_O> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <microblaze_0/microblaze_0/MicroBlaze_Core_I/Performance.Data_Flow_I/Register
+   _File_I/Using_LUT6.All_RAM32M[13].ram32m_i_RAMD_D1_O> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <dlmb_LMB_ABus<30>> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <dlmb_LMB_ABus<31>> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <microblaze_0/microblaze_0/MicroBlaze_Core_I/Performance.Data_Flow_I/Register
+   _File_I/Using_LUT6.All_RAM32M[15].ram32m_i_RAMD_D1_O> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <microblaze_0/microblaze_0/MicroBlaze_Core_I/Performance.Data_Flow_I/Register
+   _File_I/Using_LUT6.All_RAM32M[14].ram32m_i_RAMD_D1_O> is incomplete. The
+   signal does not drive any load pins in the design.
+DRC detected 0 errors and 18 warnings.  Please see the previously displayed
+individual error or warning messages for more details.
+INFO:Security:56 - Part 'xc6slx150t' is not a WebPack part.
+WARNING:Security:42 - Your software subscription period has lapsed. Your current
+version of Xilinx tools will continue to function, but you no longer qualify for
+Xilinx software updates or new releases.
+
+Creating bit map...
+Saving bit stream in "system.bit".
+Bitstream generation is complete.
