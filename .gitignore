@@ -1,3 +1,6 @@
+ilias
+ilias_copy
+
 */*.o
 */*.out
 asm/asmtovhd
