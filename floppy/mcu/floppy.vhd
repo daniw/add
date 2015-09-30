@@ -26,6 +26,7 @@ entity floppy is
         -- output signals to floppy
         floppy_step     : out   std_logic;
         floppy_dir      : out   std_logic
+        floppy_en       : out   std_logic;
     );
 end floppy;
 
@@ -135,6 +136,7 @@ architecture rtl of floppy is
     signal status_melody_reg    :   std_logic;
     signal step_reg             :   std_logic;
     signal dir_reg              :   std_logic;
+    signal en_reg               :   std_logic;
 
     -- signal to indicate end of actual tone
     signal tone_end             :   std_logic;
@@ -191,11 +193,13 @@ begin
     --    status_melody_reg
     --    step_reg
     --    dir_reg
+    --    en_reg
     -- out:
     --    status_init
     --    status_melody
-    --    step
-    --    dir
+    --    floppy_step
+    --    floppy_dir
+    --    floppy_en
     -----------------------------------------------------------------------------
     reg_out: process(status_init_reg, status_melody_reg, step_reg, dir_reg)
     begin
@@ -203,6 +207,7 @@ begin
         status_melody   <= status_melody_reg;
         floppy_step     <= step_reg;
         floppy_dir      <= dir_reg;
+        floppy_en       <= en_reg;
     end process;
 
     -----------------------------------------------------------------------------
@@ -512,11 +517,14 @@ begin
     --    step_int
     -- out:
     --    step_reg
+    --    en_reg
     -----------------------------------------------------------------------------
     --step_enable: process(enable, status_init_reg, step_int)
     --begin
         step_reg <= step_int when ((status_init_reg = '1') or (enable = '1')) else
                     '0';
+        en_reg <= 0 when ((status_init_reg = '1') or (enable = '1')) else
+                    '1';
     --end process;
 
     -----------------------------------------------------------------------------

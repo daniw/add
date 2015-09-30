@@ -34,6 +34,7 @@ entity mcu is
 
          step_to_floppy : out std_logic;
          dir_to_floppy  : out std_logic
+         en_to_floppy   : out std_logic
        );
 end mcu;
 
@@ -143,6 +144,7 @@ begin
 
         step_to_floppy => step_to_floppy,
         dir_to_floppy  => dir_to_floppy
+        en_to_floppy   => en_to_floppy
     );
   
   -- LCD ----------------------------------------------------------------------

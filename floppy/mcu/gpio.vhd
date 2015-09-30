@@ -31,6 +31,7 @@ entity gpio is
         -- Floppy connection
         step_to_floppy  : out std_logic;
         dir_to_floppy   : out std_logic
+        en_to_floppy    : out std_logic
         );
 end gpio;
 
@@ -50,6 +51,7 @@ architecture rtl of gpio is
         -- output signals to floppy
         floppy_step     : out   std_logic;
         floppy_dir      : out   std_logic
+        floppy_en       : out   std_logic
         );
     end component floppy;
 
@@ -73,7 +75,8 @@ begin
         status_init     => f_status_init,
         status_melody   => f_status_melody,
         floppy_step     => step_to_floppy,
-        floppy_dir      => dir_to_floppy
+        floppy_dir      => dir_to_floppy,
+        floppy_en       => en_to_floppy
         );
 
 

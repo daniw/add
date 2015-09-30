@@ -37,6 +37,7 @@ NET "ROT_C" LOC = "V16" | IOSTANDARD = LVTTL | PULLDOWN ;
 # I/O-constraints for hall sensors
 NET "step_to_floppy" LOC = "D7" | IOSTANDARD = LVTTL | PULLUP ;
 NET "dir_to_floppy"  LOC = "C7" | IOSTANDARD = LVTTL | PULLUP ;
+NET "en_to_floppy"   LOC = "F8" | IOSTANDARD = LVTTL | PULLUP ;
 
 
 # Set Register-to-Register pathes as multi-cycle (relax timing constraints)

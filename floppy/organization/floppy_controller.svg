@@ -24,15 +24,15 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.5600001"
-     inkscape:cx="651.30119"
-     inkscape:cy="456.97424"
+     inkscape:zoom="1.2800001"
+     inkscape:cx="798.36968"
+     inkscape:cy="404.14436"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
-     inkscape:window-width="798"
+     inkscape:window-width="882"
      inkscape:window-height="879"
-     inkscape:window-x="0"
+     inkscape:window-x="716"
      inkscape:window-y="19"
      inkscape:window-maximized="0"
      inkscape:snap-center="true">
@@ -331,13 +331,13 @@
        sodipodi:nodetypes="cccccccc" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
-       d="m 725,502.36219 180,0"
+       d="m 725,512.36218 180,0"
        id="path3923"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
-       d="m 765,502.36219 0,39.99999 10,0"
+       d="m 765,512.36218 0,30 10,0"
        id="path3925"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccc" />
@@ -799,8 +799,8 @@
        sodipodi:cy="105.36218"
        sodipodi:rx="1"
        sodipodi:ry="1"
-       d="m 208,105.36218 c 0,0.55229 -0.44772,1 -1,1 -0.55228,0 -1,-0.44771 -1,-1 0,-0.55228 0.44772,-1 1,-1 0.55228,0 1,0.44772 1,1 z"
-       transform="translate(558,397)" />
+       d="m 208,105.36218 a 1,1 0 1 1 -2,0 1,1 0 1 1 2,0 z"
+       transform="translate(558,407)" />
     <text
        xml:space="preserve"
        style="font-size:6px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -1022,7 +1022,7 @@
          sodipodi:role="line"
          id="tspan4201"
          x="891"
-         y="501.36218">step</tspan></text>
+         y="501.36218">en</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:6px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -1231,5 +1231,22 @@
        sodipodi:ry="1"
        d="m 208,105.36218 c 0,0.55229 -0.44772,1 -1,1 -0.55228,0 -1,-0.44771 -1,-1 0,-0.55228 0.44772,-1 1,-1 0.55228,0 1,0.44772 1,1 z"
        transform="translate(103,542)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       d="m 725,502.36218 180,0"
+       id="path3923-1"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="891"
+       y="511.36218"
+       id="text4199-9"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4201-6"
+         x="891"
+         y="511.36218">step</tspan></text>
   </g>
 </svg>

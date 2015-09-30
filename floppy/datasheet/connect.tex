@@ -4,14 +4,15 @@ Pegeln verwenden (vgl. \url{http://www.moria.de/~michael/floppy/floppy.pdf} p.
 21) können diese direkt mit den 3.3 V Pegeln des FPGA angesteuert werden. Mit 
 Drive Select kann das Laufwerk aktiviert werden. Dazu muss das Signal nach 
 Masse gezogen werden. Dazu genügt es, einen Jumper am entsprechenden Pin Nach 
-Masse zu stecken. Die restlichen Pins des Floppy Bus können unbeschaltet 
-bleiben. 
+Masse zu stecken. Das Signal kann aber auch mit dem Signal en verbunden 
+werden. Die restlichen Pins des Floppy Bus können unbeschaltet bleiben. 
 \begin{table}[h!]
     \centering
     \begin{zebratabular}{lll}
         \rowcolor{gray} Spartan 3E Starter Kit & $\to$ & Diskettenlaufwerk \\
         IO9 (D7)  & $\to$ & step (20) \\
         IO10 (C7) & $\to$ & dir (18) \\
+        IO11 (F8) & $\to$ & en (12) \\
     \end{zebratabular}
     \caption{Verbindung Sparten 3E Starter Kit $\to$ Diskettenlaufwerk}
     \label{tab:connection}
