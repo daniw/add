@@ -30,6 +30,24 @@ architecture rtl of rom is
     ---------------------------------------------------------------------------
     -- Opcode    Rdest    Rsrc1    Rsrc2               description
     ---------------------------------------------------------------------------
+    -- Prepare Ctrl to set capture flag
+    OPC(setil) & reg(0) & n2slv(16#01#, DW/2),         -- setil r0, 0x01
+    OPC(setih) & reg(0) & n2slv(16#00#, DW/2),         -- setih r0, 0x00
+    -- Prepare ctrl address
+    OPC(setil) & reg(1) & n2slv(16#03#, DW/2),         -- setil r1, 0x03
+    OPC(setih) & reg(1) & n2slv(16#03#, DW/2),         -- setih r1, 0x30
+    -- Prepare counter address
+    OPC(setil) & reg(2) & n2slv(16#04#, DW/2),         -- setil r2, 0x04
+    OPC(setih) & reg(2) & n2slv(16#03#, DW/2),         -- setih r2, 0x30
+    -- Endless loop
+        -- set capture flag
+        OPC(st)    & reg(0) & reg(1) & "-----",            -- st r0, r1
+        -- read counter
+        OPC(ld)    & reg(3) & reg(2) & "-----",            -- st r4, r2
+    -- End of endless loop
+    OPC(jmp)   & "-00" & n2slv(16#06#, AW-2),             -- jmp 0x006
+
+
     -- set GPIO(7:0) = LED(7:0) to Output
     OPC(setil) & reg(3) & n2slv(16#02#, DW/2),         -- setil r3, 0x02
     OPC(setih) & reg(3) & n2slv(16#03#, DW/2),         -- setih r3, 0x03

@@ -1,7 +1,7 @@
 # period constraints for system clock
 NET "clk" TNM_NET = clk;
 TIMESPEC TS_clk = PERIOD "clk" 20 ns HIGH 50%;
-	
+
 # I/O-constraints for system clock and reset input
 NET "clk" LOC = "C9"  |IOSTANDARD = LVCMOS33;
 NET "rst" LOC = "K17" |IOSTANDARD = LVTTL |PULLDOWN ; # = BTN_SOUTH
@@ -21,3 +21,8 @@ NET "Switch<0>" LOC = "L13" | IOSTANDARD = LVTTL | PULLUP ;
 NET "Switch<1>" LOC = "L14" | IOSTANDARD = LVTTL | PULLUP ;
 NET "Switch<2>" LOC = "H18" | IOSTANDARD = LVTTL | PULLUP ;
 NET "Switch<3>" LOC = "N17" | IOSTANDARD = LVTTL | PULLUP ;
+
+# I/O-constraints for rotary encoder
+NET "ROT_A"      LOC = "K18" | IOSTANDARD = LVTTL | PULLUP ;
+NET "ROT_B"      LOC = "G18" | IOSTANDARD = LVTTL | PULLUP ;
+NET "ROT_CENTER" LOC = "V16" | IOSTANDARD = LVTTL | PULLDOWN ;

@@ -16,12 +16,16 @@ use ieee.numeric_std.all;
 use work.mcu_pkg.all;
 
 entity mcu is
-  port(rst     : in    std_logic;
-       clk     : in    std_logic;
+  port(rst          : in    std_logic;
+       clk          : in    std_logic;
        -- LED(8:0) on S3E-Board (demonstrate tri-state buffers)
-       LED     : inout std_logic_vector(7 downto 0);
+       LED          : inout std_logic_vector(7 downto 0);
        -- SW(3:0) on S3E-Board
-       Switch  : in std_logic_vector(3 downto 0)
+       Switch       : in std_logic_vector(3 downto 0);
+       -- Rotary encoder on S3E-Board
+       ROT_A        : in std_logic;
+       ROT_B        : in std_logic;
+       ROT_CENTER   : in std_logic
        );
 end mcu;
 
@@ -64,6 +68,10 @@ begin
   --       driver conflicts on these pins!!
   -----------------------------------------------------------------------------
   gpio_in(11 downto 8) <= Switch;
+  -----------------------------------------------------------------------------
+  -- Connect ROT_CENTER to GPIO(12)
+  -----------------------------------------------------------------------------
+  gpio_in(12)          <= ROT_CENTER;
   -- gen_sw_3state: for k in 8 to 11 generate
   --   SW(k-8) <= gpio_out(k) when gpio_out_enb(k) = '1' else 'Z';
   -- end generate;
@@ -120,7 +128,9 @@ begin
       bus_out      => gpio2bus,
       gpio_in      => gpio_in,
       gpio_out     => gpio_out,
-      gpio_out_enb => gpio_out_enb
+      gpio_out_enb => gpio_out_enb,
+      enc_a        => ROT_A,
+      enc_b        => ROT_B
     );
     
 end rtl;
