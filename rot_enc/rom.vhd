@@ -43,7 +43,7 @@ architecture rtl of rom is
         -- set capture flag
         OPC(st)    & reg(0) & reg(1) & "-----",            -- st r0, r1
         -- read counter
-        OPC(ld)    & reg(3) & reg(2) & "-----",            -- st r4, r2
+        OPC(ld)    & reg(3) & reg(2) & "-----",            -- st r3, r2
     -- End of endless loop
     OPC(jmp)   & "-00" & n2slv(16#06#, AW-2),             -- jmp 0x006
     ---------------------------------------------------------------------------
