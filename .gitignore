@@ -68,8 +68,17 @@ webtalk.log
 webtalk_pn.xml
 
 # generated folders
+ipcore_dir/
 iseconfig/
+isim/
 xlnx_auto_0_xdb/
 xst/
 _ngo/
 _xmsgs/
+
+*.cmd
+*.exe
+*.ini
+*.log
+*.wdb
+*.xmsgs
